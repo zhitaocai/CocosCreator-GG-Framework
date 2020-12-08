@@ -1,0 +1,117 @@
+{
+    "linterOptions": {
+        "exclude": [
+            "./**/*.d.ts"
+        ]
+    },
+    "rules": {
+        "space-before-function-paren": false,
+        "semicolon": [
+            true,
+            "always"
+        ],
+        "no-var-keyword": true,
+        "no-unused-variable": [
+            false,
+            {
+                "ignore-pattern": "^_"
+            }
+        ],
+        "trailing-comma": [
+            false,
+            {
+                "multiline": "always",
+                "singleline": "never"
+            }
+        ],
+        "class-name": false,
+        "comment-format": [
+            true,
+            "check-space"
+        ],
+        "indent": [
+            true,
+            "spaces",
+            4
+        ],
+        "linebreak-style": [
+            true,
+            "LF"
+        ],
+        "no-eval": true,
+        "no-internal-module": true,
+        "no-trailing-whitespace": false,
+        "one-line": [
+            true,
+            "check-open-brace",
+            "check-whitespace"
+        ],
+        "quotemark": [
+            true,
+            "double"
+        ],
+        "triple-equals": [
+            true,
+            "allow-null-check"
+        ],
+        "typedef-whitespace": [
+            true,
+            {
+                "call-signature": "nospace",
+                "index-signature": "nospace",
+                "parameter": "nospace",
+                "property-declaration": "nospace",
+                "variable-declaration": "nospace"
+            }
+        ],
+        "variable-name": [
+            true,
+            "ban-keywords"
+        ],
+        "whitespace": [
+            true,
+            "check-branch",
+            "check-decl",
+            "check-operator",
+            "check-separator",
+            "check-type"
+        ],
+        "member-access": [
+            true,
+            "no-public"
+        ],
+        "member-ordering": [
+            false,
+            {
+                "order": [
+                    "public-static-field",
+                    "protected-static-field",
+                    "private-static-field",
+                    "public-instance-field",
+                    "protected-instance-field",
+                    "private-instance-field",
+                    "public-constructor",
+                    "public-static-method",
+                    "protected-static-method",
+                    "private-static-method",
+                    "public-instance-method",
+                    "protected-instance-method",
+                    "private-instance-method"
+                ]
+            }
+        ],
+        "no-duplicate-variable": true,
+        "no-unused-expression": false,
+        "curly": true,
+        "no-arg": true,
+        "no-switch-case-fall-through": true,
+        "no-unnecessary-initializer": true
+    },
+    "jsRules": {
+        "triple-equals": [
+            true,
+            "allow-null-check"
+        ]
+    },
+    "defaultSeverity": "warning"
+}
