@@ -52,9 +52,13 @@ export default class GamePanelPrefab extends PanelComponent {
             data: <LoadingPanelShowArgs>{
                 playShowAnim: true,
             },
-            onShowed: () => {
-                cc.log("展示完毕");
-            },
+            onShowed: () => {},
+        });
+    }
+
+    onShowGameSettingPanelBtnClick() {
+        gg.panelRouter.show({
+            panelConfig: Panels.gameSettingPanel,
         });
     }
 }

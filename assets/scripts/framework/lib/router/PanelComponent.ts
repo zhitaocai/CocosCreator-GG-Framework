@@ -11,14 +11,14 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export abstract class PanelComponent extends EnhancedComponent {
     /**
-     * 展示面板
+     * 展示面板（此方法会被面板路由器所调用，请不要直接调用这个方法）
      */
-    abstract show(option: PanelShowOption): void;
+    protected abstract show(option: PanelShowOption): void;
 
     /**
-     * 隐藏面板
+     * 隐藏面板（此方法会被面板路由器所调用，请不要直接调用这个方法）
      */
-    abstract hide(option: PanelHideOption): void;
+    protected abstract hide(option: PanelHideOption): void;
 }
 
 export type PanelHideOption = {

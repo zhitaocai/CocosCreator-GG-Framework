@@ -83,12 +83,13 @@ export default class PanelRouter {
             bundle.preload(prefabPath);
         };
         let bundleName = panelConfig.prefabPath.substring(0, panelConfig.prefabPath.indexOf("/"));
-        if (bundleName === "resources") {
-            preloadBundlePrefab(cc.resources);
-        } else {
+        let bundle: cc.AssetManager.Bundle = cc.assetManager.getBundle(bundleName);
+        if (bundle == null) {
             cc.assetManager.loadBundle(bundleName, (error: Error, bundle: cc.AssetManager.Bundle) => {
                 preloadBundlePrefab(bundle);
             });
+        } else {
+            preloadBundlePrefab(bundle);
         }
     }
 
@@ -194,12 +195,13 @@ export default class PanelRouter {
             });
         };
         let bundleName = panelConfig.prefabPath.substring(0, panelConfig.prefabPath.indexOf("/"));
-        if (bundleName === "resources") {
-            loadBundlePrefab(cc.resources);
-        } else {
+        let bundle: cc.AssetManager.Bundle = cc.assetManager.getBundle(bundleName);
+        if (bundle == null) {
             cc.assetManager.loadBundle(bundleName, (error: Error, bundle: cc.AssetManager.Bundle) => {
                 loadBundlePrefab(bundle);
             });
+        } else {
+            loadBundlePrefab(bundle);
         }
     }
 

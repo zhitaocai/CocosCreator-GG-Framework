@@ -1967,6 +1967,50 @@ declare namespace cc {
 		*/
 		update(dt: number): void;	
 	}	
+
+	export type TweenEasing =
+        | "linear"
+        | "fade"
+        | "quadIn"
+        | "quadOut"
+        | "quadInOut"
+        | "quadOutIn"
+        | "cubicIn"
+        | "cubicOut"
+        | "cubicInOut"
+        | "cubicOutIn"
+        | "quartIn"
+        | "quartOut"
+        | "quartInOut"
+        | "quartOutIn"
+        | "quintIn"
+        | "quintOut"
+        | "quintInOut"
+        | "quintOutIn"
+        | "sineIn"
+        | "sineOut"
+        | "sineInOut"
+        | "sineOutIn"
+        | "expoIn"
+        | "expoOut"
+        | "expoInOut"
+        | "expoOutIn"
+        | "circIn"
+        | "circOut"
+        | "circInOut"
+        | "circOutIn"
+        | "elasticIn"
+        | "elasticOut"
+        | "elasticInOut"
+        | "elasticOutIn"
+        | "backIn"
+        | "backOut"
+        | "backInOut"
+        | "backOutIn"
+        | "bounceIn"
+        | "bounceOut"
+        | "bounceInOut"
+		| "bounceOutIn";
 	/** !#en
 	Tween provide a simple and flexible way to create action. Tween's api is more flexible than `cc.Action`:
 	 - Support creating an action sequence in chained api.
@@ -2088,7 +2132,7 @@ declare namespace cc {
 		@param times times
 		@param opts opts 
 		*/
-		blink(duration: number, times: number, opts?: {progress?: Function; easing?: Function|string; }): Tween<T>;		
+		blink(duration: number, times: number, opts?: {progress?: Function; easing?: Function|TweenEasing; }): Tween<T>;		
 		/**
 		!#en
 		Add an action which calculate with absolute value
@@ -2098,7 +2142,7 @@ declare namespace cc {
 		@param props {scale: 2, position: cc.v3(100, 100, 100)}
 		@param opts opts 
 		*/
-		to <OPTS extends Partial<{progress: Function, easing: Function|String}>> (duration: number, props: ConstructorType<T>, opts?: OPTS) : Tween<T>;		
+		to <OPTS extends Partial<{progress: Function, easing: Function|TweenEasing}>> (duration: number, props: ConstructorType<T>, opts?: OPTS) : Tween<T>;		
 		/**
 		!#en
 		Add an action which calculate with relative value
@@ -2108,7 +2152,7 @@ declare namespace cc {
 		@param props {scale: 2, position: cc.v3(100, 100, 100)}
 		@param opts opts 
 		*/
-		by <OPTS extends Partial<{progress: Function, easing: Function|String}>> (duration: number, props: ConstructorType<T>, opts?: OPTS) : Tween<T>;		
+		by <OPTS extends Partial<{progress: Function, easing: Function|TweenEasing}>> (duration: number, props: ConstructorType<T>, opts?: OPTS) : Tween<T>;		
 		/**
 		!#en
 		Directly set target properties
