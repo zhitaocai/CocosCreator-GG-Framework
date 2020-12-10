@@ -33,8 +33,8 @@ export const Panels = {
     /**
      * 游戏设置面板
      */
-    settingPanel: <PanelConfig>{
-        prefabPath: "gamebundle/prefabs/settings/SettingPanelPrefab",
+    gameSettingPanel: <PanelConfig>{
+        prefabPath: "gamebundle/prefabs/setting/GameSettingPanelPrefab",
         layerZIndex: PanelLayerEnum.UILayer,
     },
 
