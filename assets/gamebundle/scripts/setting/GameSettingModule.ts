@@ -30,6 +30,7 @@ export default class GameSettingModule {
                 this.data = new GameSettingModel();
             }
         }
+        gg.logger.log("游戏设置", this.data);
     }
 
     /**

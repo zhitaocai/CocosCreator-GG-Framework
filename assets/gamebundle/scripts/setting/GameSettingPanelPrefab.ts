@@ -14,7 +14,10 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class GameSettingPanelPrefab extends PanelComponent {
     @property(cc.Node)
-    bgNode: cc.Node = null;
+    dialogBgNode: cc.Node = null;
+
+    @property(cc.Node)
+    dialogContentNode: cc.Node = null;
 
     @property(cc.Slider)
     musicVolumeSlider: cc.Slider = null;
@@ -81,10 +84,13 @@ export default class GameSettingPanelPrefab extends PanelComponent {
     }
 
     private _playPanelShowAnim(onAnimCompleted: Function) {
-        cc.Tween.stopAllByTarget(this.bgNode);
-        cc.tween<cc.Node>(this.bgNode)
-            .set({ opacity: 0 })
-            .to(0.24, { opacity: 220 }, { easing: "sineOut" })
+        cc.Tween.stopAllByTarget(this.dialogBgNode);
+        cc.tween<cc.Node>(this.dialogBgNode).set({ opacity: 0 }).to(0.24, { opacity: 220 }, { easing: "sineOut" }).start();
+
+        cc.Tween.stopAllByTarget(this.dialogContentNode);
+        cc.tween<cc.Node>(this.dialogContentNode)
+            .set({ opacity: 0, position: cc.v3(0, 100, 0) })
+            .to(0.24, { opacity: 255, position: cc.v3() }, { easing: "sineOut" })
             .call(() => {
                 onAnimCompleted();
             })
@@ -92,9 +98,12 @@ export default class GameSettingPanelPrefab extends PanelComponent {
     }
 
     private _playPanelHideAnim(onAnimCompleted: Function) {
-        cc.Tween.stopAllByTarget(this.bgNode);
-        cc.tween<cc.Node>(this.bgNode)
-            .to(0.24, { opacity: 0 }, { easing: "sineOut" })
+        cc.Tween.stopAllByTarget(this.dialogBgNode);
+        cc.tween<cc.Node>(this.dialogBgNode).to(0.24, { opacity: 0 }, { easing: "sineOut" }).start();
+
+        cc.Tween.stopAllByTarget(this.dialogContentNode);
+        cc.tween<cc.Node>(this.dialogContentNode)
+            .to(0.24, { opacity: 0, position: cc.v3(0, 100, 0) }, { easing: "sineOut" })
             .call(() => {
                 onAnimCompleted();
             })
