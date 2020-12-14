@@ -13,12 +13,12 @@ export abstract class PanelComponent extends EnhancedComponent {
     /**
      * 展示面板（此方法会被面板路由器所调用，请不要直接调用这个方法）
      */
-    protected abstract show(option: PanelShowOption): void;
+    abstract show(option: PanelShowOption): void;
 
     /**
      * 隐藏面板（此方法会被面板路由器所调用，请不要直接调用这个方法）
      */
-    protected abstract hide(option: PanelHideOption): void;
+    abstract hide(option: PanelHideOption): void;
 }
 
 export type PanelHideOption = {

@@ -211,7 +211,7 @@ export default class PanelRouter {
      * @param option 展示面板的参数
      */
     showAsync(option: CommonPanelOption) {
-        return new Promise((resolve, reject) => {
+        return new Promise<void>((resolve, reject) => {
             this.show({
                 panelConfig: option.panelConfig,
                 data: option.data,
@@ -278,7 +278,6 @@ export default class PanelRouter {
             let panelLayerNode = this._layerNodeMap.get(option.panelConfig.layerZIndex);
             if (panelLayerNode == null) {
                 panelLayerNode = new cc.Node();
-                panelLayerNode.name = name;
                 panelLayerNode.zIndex = option.panelConfig.layerZIndex;
                 // 为图层添加 Widget 组件，扩充至全屏尺寸
                 let widget: cc.Widget = panelLayerNode.addComponent(cc.Widget);
@@ -320,7 +319,7 @@ export default class PanelRouter {
      * @param option 隐藏面板的参数
      */
     hideAsync(option: CommonPanelOption) {
-        return new Promise((resolve, reject) => {
+        return new Promise<void>((resolve, reject) => {
             this.hide({
                 panelConfig: option.panelConfig,
                 data: option.data,

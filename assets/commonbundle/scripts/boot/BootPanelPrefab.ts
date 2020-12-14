@@ -58,6 +58,12 @@ export default class BootPanelPrefab extends PanelComponent {
         this._onLoadProgressChanged(1.0);
         gg.panelRouter.show({
             panelConfig: Panels.gamePanel,
+            onShowed: () => {
+                // 主面板打开完毕之后，清理启动页面板
+                gg.panelRouter.destroy({
+                    panelConfig: Panels.bootPanel,
+                });
+            },
         });
     }
 

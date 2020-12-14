@@ -37,7 +37,7 @@ export default class GameSettingPanelPrefab extends PanelComponent {
         this.vibrateToggle.node.on("toggle", this._onVibrateChanged, this);
     }
 
-    protected show(option: PanelShowOption): void {
+    show(option: PanelShowOption): void {
         // 显示最新的游戏配置
         this.musicVolumeSlider.progress = GameSettingModule.data.musicVolume;
         this.soundVolumeSlider.progress = GameSettingModule.data.soundVolume;
@@ -52,7 +52,7 @@ export default class GameSettingPanelPrefab extends PanelComponent {
         });
     }
 
-    protected hide(option: PanelHideOption): void {
+    hide(option: PanelHideOption): void {
         // 让关闭按钮不可以点击
         this.closeBtn.interactable = false;
 
