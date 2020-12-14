@@ -71,15 +71,15 @@ assets
 ┃    ┃       ┗━━ GameSettingPanelPrefab.ts (游戏设置面板 Prefab 的控制脚本)
 ┃    ┗━━ textures
 ┃        ┗━━ xxx (自行组织)
-┣━━ gamebundle (游戏模块 bundle 优先级: 5)
-┃    ┣━━ prefabs
-┃    ┃   ┗━━ game
-┃    ┃       ┗━━ GamePanelPrefab.prefab (游戏主面板 Prefab)
-┃    ┣━━ scripts
-┃    ┃   ┗━━ game
-┃    ┃       ┗━━ GamePanelPrefab.prefab (游戏主面板 Prefab 的控制脚本)
-┃    ┗━━ textures
-┃        ┗━━ xxx (自行组织)
+┗━━ gamebundle (游戏模块 bundle 优先级: 5)
+     ┣━━ prefabs
+     ┃   ┗━━ game
+     ┃       ┗━━ GamePanelPrefab.prefab (游戏主面板 Prefab)
+     ┣━━ scripts
+     ┃   ┗━━ game
+     ┃       ┗━━ GamePanelPrefab.prefab (游戏主面板 Prefab 的控制脚本)
+     ┗━━ textures
+         ┗━━ xxx (自行组织)
 ```
 
 说明：
