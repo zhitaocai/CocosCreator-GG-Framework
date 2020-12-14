@@ -67,7 +67,7 @@ export default class GameSettingPanelPrefab extends PanelComponent {
 
     onCloseBtnClick() {
         gg.panelRouter.hide({
-            panelConfig: Panels.gameSettingPanel,
+            panel: Panels.gameSettingPanel,
         });
     }
 

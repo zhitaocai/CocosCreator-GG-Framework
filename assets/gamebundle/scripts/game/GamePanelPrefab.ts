@@ -40,7 +40,7 @@ export default class GamePanelPrefab extends PanelComponent {
         //   await gg.panelRouter.loadAsync(Panels.loadingPanel);
         //   await gg.panelRouter.loadAsync(Panels.toastPanel);
         gg.panelRouter.show({
-            panelConfig: Panels.toastPanel,
+            panel: Panels.toastPanel,
             data: <ToastPanelShowArgs>{
                 text: "短Toast测试",
             },
@@ -50,7 +50,7 @@ export default class GamePanelPrefab extends PanelComponent {
     onShowLoadingPanelBtnClick() {
         // 打开面板弹窗
         gg.panelRouter.show({
-            panelConfig: Panels.loadingPanel,
+            panel: Panels.loadingPanel,
             data: <LoadingPanelShowArgs>{
                 playShowAnim: true,
             },
@@ -60,7 +60,7 @@ export default class GamePanelPrefab extends PanelComponent {
 
     onShowGameSettingPanelBtnClick() {
         gg.panelRouter.show({
-            panelConfig: Panels.gameSettingPanel,
+            panel: Panels.gameSettingPanel,
         });
     }
 }

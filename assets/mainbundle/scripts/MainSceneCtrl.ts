@@ -24,7 +24,7 @@ export default class MainSceneCtrl extends cc.Component {
 
         // 打开启动页
         gg.panelRouter.show({
-            panelConfig: Panels.bootPanel,
+            panel: Panels.bootPanel,
         });
     }
 }

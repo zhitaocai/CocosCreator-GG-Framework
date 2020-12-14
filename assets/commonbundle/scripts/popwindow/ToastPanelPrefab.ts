@@ -84,7 +84,7 @@ export default class ToastPanelPrefab extends PanelComponent {
         this.unscheduleAllCallbacks();
         this.scheduleOnce(() => {
             gg.panelRouter.hide({
-                panelConfig: Panels.toastPanel,
+                panel: Panels.toastPanel,
             });
         }, duration);
     }
