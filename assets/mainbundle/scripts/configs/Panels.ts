@@ -31,18 +31,18 @@ export const Panels = {
     },
 
     /**
-     * 游戏主面板
-     */
-    gamePanel: <PanelConfig>{
-        prefabPath: "commonbundle/prefabs/GamePanelPrefab",
-        layerZIndex: PanelLayerEnum.UILayer,
-    },
-
-    /**
      * 游戏设置面板
      */
     gameSettingPanel: <PanelConfig>{
         prefabPath: "commonbundle/prefabs/setting/GameSettingPanelPrefab",
+        layerZIndex: PanelLayerEnum.UILayer,
+    },
+
+    /**
+     * 游戏主面板
+     */
+    gamePanel: <PanelConfig>{
+        prefabPath: "gamebundle/prefabs/game/GamePanelPrefab",
         layerZIndex: PanelLayerEnum.UILayer,
     },
 

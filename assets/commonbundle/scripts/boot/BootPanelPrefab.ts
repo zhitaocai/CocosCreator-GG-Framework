@@ -44,7 +44,7 @@ export default class BootPanelPrefab extends PanelComponent {
         await gg.panelRouter.loadAsync(Panels.loadingPanel);
 
         this._onLoadProgressChanged(0.2, "加载游戏资源...");
-        await gg.panelRouter.loadAsync(Panels.loadingPanel);
+        await gg.panelRouter.loadAsync(Panels.toastPanel);
 
         // 加载游戏设置面板
         this._onLoadProgressChanged(0.3, "加载游戏资源...");

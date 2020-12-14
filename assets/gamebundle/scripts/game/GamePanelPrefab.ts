@@ -1,12 +1,14 @@
-import { Panels } from "../../mainbundle/scripts/configs/Panels";
-import { gg } from "../../scripts/framework/gg";
-import { PanelComponent, PanelHideOption, PanelShowOption } from "../../scripts/framework/lib/router/PanelComponent";
-import { LoadingPanelShowArgs } from "./popwindow/LoadingPanelPrefab";
-import { ToastPanelShowArgs } from "./popwindow/ToastPanelPrefab";
+import { LoadingPanelShowArgs } from "../../../commonbundle/scripts/popwindow/LoadingPanelPrefab";
+import { ToastPanelShowArgs } from "../../../commonbundle/scripts/popwindow/ToastPanelPrefab";
+import { Panels } from "../../../mainbundle/scripts/configs/Panels";
+import { gg } from "../../../scripts/framework/gg";
+import { PanelComponent, PanelHideOption, PanelShowOption } from "../../../scripts/framework/lib/router/PanelComponent";
 
 const { ccclass, property } = cc._decorator;
 
 /**
+ * 游戏主面板
+ *
  * @author caizhitao
  * @created 2020-12-07 21:50:39
  */
