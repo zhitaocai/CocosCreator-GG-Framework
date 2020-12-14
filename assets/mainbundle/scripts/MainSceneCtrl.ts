@@ -1,4 +1,3 @@
-import GameSettingModule from "../../gamebundle/scripts/setting/GameSettingModule";
 import { gg } from "../../scripts/framework/gg";
 import { Panels } from "./configs/Panels";
 
@@ -20,22 +19,12 @@ export default class MainSceneCtrl extends cc.Component {
     }
 
     async start() {
-        // 初始化游戏设置
-        GameSettingModule.initSettingConfig();
+        // 加载启动页
+        await gg.panelRouter.loadAsync(Panels.bootPanel);
 
-        // 提前加载通用弹窗面板
-        await gg.panelRouter.loadAsync(Panels.loadingPanel);
-        await gg.panelRouter.loadAsync(Panels.toastPanel);
-
-        // 加载游戏设置面板
-        await gg.panelRouter.loadAsync(Panels.gameSettingPanel);
-
-        // 加载游戏主面板
-        await gg.panelRouter.loadAsync(Panels.gamePanel);
-
-        // 打开主面板
+        // 打开启动页
         gg.panelRouter.show({
-            panelConfig: Panels.gamePanel,
+            panelConfig: Panels.bootPanel,
         });
     }
 }

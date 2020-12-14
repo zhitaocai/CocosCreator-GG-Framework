@@ -42,14 +42,14 @@ GG 框架基于 TypeScript 语言，框架入口为 `gg`，只需要在编辑器
 
 ```
 assets
-┣━━ mainBundle（此为文件夹，无需在编辑器中配置为bundle，打包后会变为内置的 main Bundle，bundle 优先级: 7）
+┣━━ mainbundle（此为文件夹，无需在编辑器中配置为bundle，打包后会变为内置的 main Bundle，bundle 优先级: 7）
 ┃    ┣━━ scenes
 ┃    ┃   ┗━━ MainScene.fire（主场景）
 ┃    ┗━━ scripts
 ┃        ┣━━ configs
 ┃        ┃   ┗━━ Panels.ts（记录所有面板的脚本）
 ┃        ┗━━ MainSceneCtrl.ts（主场景入口逻辑脚本）
-┣━━ gameCommonBundle（bundle 优先级: 6）
+┣━━ commonbundle（通用模块 bundle 优先级: 6）
 ┃    ┣━━ prefabs
 ┃    ┃   ┣━━ popwindow
 ┃    ┃   ┃   ┗━━ LoadingPanelPrefab.prefab（全局通用 Loading 面板 Prefab）
@@ -65,7 +65,7 @@ assets
 ┃    ┃       ┗━━ GameSettingPanelPrefab.ts（游戏设置面板 Prefab 的控制脚本）
 ┃    ┗━━ textures
 ┃        ┗━━ xxx（自行组织）
-┗━━ gameBundle（bundle 优先级: 5）
+┗━━ gamebundle（游戏模块 bundle 优先级: 5）
 ```
 
 说明：
