@@ -33,4 +33,67 @@ GG 框架基于 TypeScript 语言，框架入口为 `gg`，只需要在编辑器
 
 ## 三、项目详细介绍
 
-// TODO
+项目基础架构为 **单场景 + 多Prefab** 。其中，
+
+* 不同的 Prefab 将通过 AssetBundle 去进行组织以形成模块。形成模块的目的解耦，提高复用性，方便跨项目使用
+* 在跨项目使用的时候，我们的数据结构和逻辑基本是可以服用的，只有UI可能会有差异
+
+项目结构概览：
+
+```
+assets
+┣━━ mainbundle (此为文件夹，无需配置为bundle，打包后会变为内置的 main Bundle，bundle 优先级: 7)
+┃    ┣━━ scenes
+┃    ┃   ┗━━ MainScene.fire (主场景)
+┃    ┗━━ scripts
+┃        ┣━━ configs
+┃        ┃   ┗━━ Panels.ts (记录所有面板的脚本)
+┃        ┗━━ MainSceneCtrl.ts (主场景入口逻辑脚本)
+┣━━ commonbundle (通用模块 bundle 优先级: 6)
+┃    ┣━━ prefabs
+┃    ┃   ┣━━ boot
+┃    ┃   ┃   ┗━━ BootPanelPrefab.prefab (游戏启动页面板 Prefab)
+┃    ┃   ┣━━ popwindow
+┃    ┃   ┃   ┣━━ LoadingPanelPrefab.prefab (全局通用 Loading 面板 Prefab)
+┃    ┃   ┃   ┗━━ ToastPanelPrefab.prefab (全局通用 Toast 面板 Prefab)
+┃    ┃   ┗━━ setting
+┃    ┃       ┗━━ GameSettingPanelPrefab.prefab (游戏设置面板 Prefab)
+┃    ┣━━ scripts
+┃    ┃   ┣━━ boot
+┃    ┃   ┃   ┗━━ BootPanelPrefab.ts (游戏启动页面板 Prefab 的控制脚本)
+┃    ┃   ┣━━ popwindow
+┃    ┃   ┃   ┣━━ LoadingPanelPrefab.ts (全局通用 Loading 面板 Prefab 的控制脚本)
+┃    ┃   ┃   ┗━━ ToastPanelPrefab.ts (全局通用 Toast 面板 Prefab 的控制脚本)
+┃    ┃   ┗━━ setting
+┃    ┃       ┣━━ GameSettingConst.ts (游戏设置模块的常量)
+┃    ┃       ┣━━ GameSettingModel.ts (游戏设置模块的数据)
+┃    ┃       ┣━━ GameSettingModule.ts (游戏设置模块的逻辑控制)
+┃    ┃       ┗━━ GameSettingPanelPrefab.ts (游戏设置面板 Prefab 的控制脚本)
+┃    ┗━━ textures
+┃        ┗━━ xxx (自行组织)
+┗━━ gamebundle (游戏模块 bundle 优先级: 5)
+     ┣━━ prefabs
+     ┃   ┗━━ game
+     ┃       ┗━━ GamePanelPrefab.prefab (游戏主面板 Prefab)
+     ┣━━ scripts
+     ┃   ┗━━ game
+     ┃       ┗━━ GamePanelPrefab.prefab (游戏主面板 Prefab 的控制脚本)
+     ┗━━ textures
+         ┗━━ xxx (自行组织)
+```
+
+说明：
+
+1. 除了 `mainBundle` 文件夹之外，其他 `*bundle` 后缀的文件夹都需要配置为 bundle
+2. 此框架项目取消了使用 `resources` 的 bundle ，只保留了 `main`, `internal` 两个内置 bundle （对于内置 bundle 的理解可以阅读 [官方文档](http://docs.cocos.com/creator/manual/zh/asset-manager/bundle.html) ）
+3. 注意bundle优先级， `mainbundle > commonbundle > gamebundle > ...bundle`
+
+### Q & A
+
+Q：为什么启动页不放在 MainScene.scene 中， 而是要单独弄一个 BootPanelPrefab.prefab 呢？
+
+A：这个是为了优化小游戏首包体积，这样子设计，**小游戏首包体积几乎是只有一个场景（无任何资源引用）+框架脚本，保证一个极小体积的首包**。当然不是非得这样子弄，只是这样子弄的意图是这个意思。
+
+
+
+// TODO 补充更详细说明

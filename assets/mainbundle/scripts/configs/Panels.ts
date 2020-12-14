@@ -23,10 +23,10 @@ export const Panels = {
     // 普通页面层级
 
     /**
-     * 游戏面板
+     * 游戏启动页面板
      */
-    gamePanel: <PanelConfig>{
-        prefabPath: "gamebundle/prefabs/GamePanelPrefab",
+    bootPanel: <PanelConfig>{
+        prefabPath: "commonbundle/prefabs/boot/BootPanelPrefab",
         layerZIndex: PanelLayerEnum.UILayer,
     },
 
@@ -34,7 +34,15 @@ export const Panels = {
      * 游戏设置面板
      */
     gameSettingPanel: <PanelConfig>{
-        prefabPath: "gamebundle/prefabs/setting/GameSettingPanelPrefab",
+        prefabPath: "commonbundle/prefabs/setting/GameSettingPanelPrefab",
+        layerZIndex: PanelLayerEnum.UILayer,
+    },
+
+    /**
+     * 游戏主面板
+     */
+    gamePanel: <PanelConfig>{
+        prefabPath: "gamebundle/prefabs/game/GamePanelPrefab",
         layerZIndex: PanelLayerEnum.UILayer,
     },
 
@@ -45,7 +53,7 @@ export const Panels = {
      * 通用加载页面
      */
     loadingPanel: <PanelConfig>{
-        prefabPath: "gamebundle/prefabs/popwindow/LoadingPanelPrefab",
+        prefabPath: "commonbundle/prefabs/popwindow/LoadingPanelPrefab",
         layerZIndex: PanelLayerEnum.PopLayer,
     },
 
@@ -53,7 +61,7 @@ export const Panels = {
      * 通用Toast页面
      */
     toastPanel: <PanelConfig>{
-        prefabPath: "gamebundle/prefabs/popwindow/ToastPanelPrefab",
+        prefabPath: "commonbundle/prefabs/popwindow/ToastPanelPrefab",
         layerZIndex: PanelLayerEnum.PopLayer,
     },
 };

@@ -211,9 +211,9 @@ export default class PanelRouter {
      * @param option 展示面板的参数
      */
     showAsync(option: CommonPanelOption) {
-        return new Promise((resolve, reject) => {
+        return new Promise<void>((resolve, reject) => {
             this.show({
-                panelConfig: option.panelConfig,
+                panel: option.panel,
                 data: option.data,
                 onShowed: (error) => {
                     error ? reject(error) : resolve();
@@ -228,7 +228,7 @@ export default class PanelRouter {
      * @param option 展示面板的参数
      */
     show(option: ShowPanelOption) {
-        let prefabPath = option.panelConfig.prefabPath;
+        let prefabPath = option.panel.prefabPath;
         let panelCache = this._panelCacheMap.get(prefabPath);
         if (!panelCache) {
             this._enabledLog && gg.logger.error(PanelRouter.Tag, prefabPath, "尝试展示面板", "面板还没有加载，不能展示");
@@ -275,11 +275,10 @@ export default class PanelRouter {
     private _showPanel(option: ShowPanelOption, panelCache: PanelCache) {
         if (panelCache.node == null) {
             // 获取面板层级节点
-            let panelLayerNode = this._layerNodeMap.get(option.panelConfig.layerZIndex);
+            let panelLayerNode = this._layerNodeMap.get(option.panel.layerZIndex);
             if (panelLayerNode == null) {
                 panelLayerNode = new cc.Node();
-                panelLayerNode.name = name;
-                panelLayerNode.zIndex = option.panelConfig.layerZIndex;
+                panelLayerNode.zIndex = option.panel.layerZIndex;
                 // 为图层添加 Widget 组件，扩充至全屏尺寸
                 let widget: cc.Widget = panelLayerNode.addComponent(cc.Widget);
                 widget.top = 0;
@@ -294,7 +293,7 @@ export default class PanelRouter {
                 // 将图层节点添加到根节点中
                 this._rootNode.addChild(panelLayerNode);
                 // 缓存层级节点
-                this._layerNodeMap.set(option.panelConfig.layerZIndex, panelLayerNode);
+                this._layerNodeMap.set(option.panel.layerZIndex, panelLayerNode);
             }
             // 将面板加入到层级节点中
             let panelNode = cc.instantiate(panelCache.prefab);
@@ -307,7 +306,7 @@ export default class PanelRouter {
         panelCache.node.getComponent(PanelComponent).show({
             data: option.data,
             onShowed: () => {
-                this._enabledLog && gg.logger.log(PanelRouter.Tag, option.panelConfig.prefabPath, "尝试展示面板", "面板已经展示完成");
+                this._enabledLog && gg.logger.log(PanelRouter.Tag, option.panel.prefabPath, "尝试展示面板", "面板已经展示完成");
                 panelCache.state = PanelStateEnum.Showed;
                 option.onShowed && option.onShowed();
             },
@@ -320,9 +319,9 @@ export default class PanelRouter {
      * @param option 隐藏面板的参数
      */
     hideAsync(option: CommonPanelOption) {
-        return new Promise((resolve, reject) => {
+        return new Promise<void>((resolve, reject) => {
             this.hide({
-                panelConfig: option.panelConfig,
+                panel: option.panel,
                 data: option.data,
                 onHided: (error) => {
                     error ? reject(error) : resolve();
@@ -337,7 +336,7 @@ export default class PanelRouter {
      * @param option 隐藏面板的参数
      */
     hide(option: HidePanelOption) {
-        let prefabPath = option.panelConfig.prefabPath;
+        let prefabPath = option.panel.prefabPath;
         let panelCache = this._panelCacheMap.get(prefabPath);
         if (!panelCache) {
             this._enabledLog && gg.logger.error(PanelRouter.Tag, prefabPath, "尝试隐藏面板", "面板还没有加载，不能隐藏");
@@ -386,7 +385,7 @@ export default class PanelRouter {
         panelCache.node.getComponent(PanelComponent).hide({
             data: option.data,
             onHided: () => {
-                this._enabledLog && gg.logger.log(PanelRouter.Tag, option.panelConfig.prefabPath, "尝试隐藏面板", "面板隐藏成功");
+                this._enabledLog && gg.logger.log(PanelRouter.Tag, option.panel.prefabPath, "尝试隐藏面板", "面板隐藏成功");
                 panelCache.state = PanelStateEnum.Hided;
                 panelCache.node.active = false;
                 option.onHided && option.onHided();
@@ -400,7 +399,7 @@ export default class PanelRouter {
      * @param option 销毁参数
      */
     destroy(option: CommonPanelOption) {
-        let prefabPath = option.panelConfig.prefabPath;
+        let prefabPath = option.panel.prefabPath;
         let panel = this._panelCacheMap.get(prefabPath);
         if (!panel) {
             this._enabledLog && gg.logger.error(PanelRouter.Tag, prefabPath, "尝试销毁面板", "当前面板还不存在（建议检查为什么此时触发销毁方法）");
@@ -491,7 +490,7 @@ export interface CommonPanelOption {
     /**
      * 要操作的面板
      */
-    panelConfig: PanelConfig;
+    panel: PanelConfig;
 
     /**
      * 操作面板时传入的参数

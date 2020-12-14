@@ -16,6 +16,12 @@ export interface ToastPanelShowArgs {
     duration?: number;
 }
 
+/**
+ * Toast 面板
+ *
+ * @author caizhitao
+ * @created 2020-12-07 22:02:32
+ */
 @ccclass
 export default class ToastPanelPrefab extends PanelComponent {
     @property(cc.Node)
@@ -78,7 +84,7 @@ export default class ToastPanelPrefab extends PanelComponent {
         this.unscheduleAllCallbacks();
         this.scheduleOnce(() => {
             gg.panelRouter.hide({
-                panelConfig: Panels.toastPanel,
+                panel: Panels.toastPanel,
             });
         }, duration);
     }
