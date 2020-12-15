@@ -30,20 +30,19 @@ export const Panels = {
         prefabPath: `${Bundles.CommonBundle}/prefabs/boot/BootPanelPrefab`,
         layerZIndex: PanelLayerEnum.UILayer,
     },
-
-    /**
-     * 游戏设置面板
-     */
-    gameSettingPanel: <PanelConfig>{
-        prefabPath: `${Bundles.CommonBundle}/prefabs/setting/GameSettingPanelPrefab`,
-        layerZIndex: PanelLayerEnum.UILayer,
-    },
-
     /**
      * 游戏主面板
      */
     gamePanel: <PanelConfig>{
         prefabPath: `${Bundles.GameBundle}/prefabs/game/GamePanelPrefab`,
+        layerZIndex: PanelLayerEnum.UILayer,
+    },
+
+    /**
+     * 游戏设置面板
+     */
+    gameSettingPanel: <PanelConfig>{
+        prefabPath: `${Bundles.GameBundle}/prefabs/setting/GameSettingPanelPrefab`,
         layerZIndex: PanelLayerEnum.UILayer,
     },
 

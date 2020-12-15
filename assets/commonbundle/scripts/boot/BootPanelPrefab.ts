@@ -1,9 +1,9 @@
+import GameSettingModule from "../../../gamebundle/scripts/setting/GameSettingModule";
 import { Bundles } from "../../../mainbundle/scripts/configs/Bundles";
 import { Panels } from "../../../mainbundle/scripts/configs/Panels";
 import { gg } from "../../../scripts/framework/gg";
 import AssetLoader from "../../../scripts/framework/lib/asset/AssetLoader";
 import { PanelComponent, PanelHideOption, PanelShowOption } from "../../../scripts/framework/lib/router/PanelComponent";
-import GameSettingModule from "../setting/GameSettingModule";
 
 const { ccclass, property } = cc._decorator;
 
