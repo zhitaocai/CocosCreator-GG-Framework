@@ -47,7 +47,8 @@ assets
 ┃    ┃   ┗━━ MainScene.fire (主场景)
 ┃    ┗━━ scripts
 ┃        ┣━━ configs
-┃        ┃   ┗━━ Panels.ts (记录所有面板的脚本)
+┃        ┃   ┣━━ BundleConfigs.ts (记录所有 Bundle 配置的脚本)
+┃        ┃   ┗━━ PanelConfigs.ts (记录所有面板配置的脚本)
 ┃        ┗━━ MainSceneCtrl.ts (主场景入口逻辑脚本)
 ┣━━ commonbundle (通用模块 bundle 优先级: 6)
 ┃    ┣━━ prefabs
@@ -89,6 +90,7 @@ assets
 2. 此框架项目取消了使用 `resources` 的 bundle ，只保留了 `main`, `internal` 两个内置 bundle （对于内置 bundle 的理解可以阅读 [官方文档](http://docs.cocos.com/creator/manual/zh/asset-manager/bundle.html) ）
 3. 注意bundle优先级， `mainbundle > commonbundle > gamebundle > ...bundle`
 4. 模块结构可以参考 `gamebundle/scripts/setting`
+5. 项目的阅读只需要从 `MainSceneCtrl.ts` 中阅读即可，过程中了解一下 `gg.` 框架的接口
 
 ## 四、项目模块结构说明
 
