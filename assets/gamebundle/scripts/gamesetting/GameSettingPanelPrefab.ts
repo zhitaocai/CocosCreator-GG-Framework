@@ -1,4 +1,4 @@
-import { Panels } from "../../../mainbundle/scripts/configs/Panels";
+import { PanelConfigs } from "../../../mainbundle/scripts/configs/PanelConfigs";
 import { gg } from "../../../scripts/framework/gg";
 import { PanelComponent, PanelHideOption, PanelShowOption } from "../../../scripts/framework/lib/router/PanelComponent";
 import { GameSettingEvent } from "./GameSettingEvent";
@@ -75,7 +75,7 @@ export default class GameSettingPanelPrefab extends PanelComponent {
 
     onCloseBtnClick() {
         gg.panelRouter.hide({
-            panel: Panels.gameSettingPanel,
+            panel: PanelConfigs.gameSettingPanel,
         });
     }
 

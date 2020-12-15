@@ -1,6 +1,6 @@
 import GameSettingModule from "../../../gamebundle/scripts/gamesetting/GameSettingModule";
-import { Bundles } from "../../../mainbundle/scripts/configs/Bundles";
-import { Panels } from "../../../mainbundle/scripts/configs/Panels";
+import { BundleConfigs } from "../../../mainbundle/scripts/configs/BundleConfigs";
+import { PanelConfigs } from "../../../mainbundle/scripts/configs/PanelConfigs";
 import { gg } from "../../../scripts/framework/gg";
 import AssetLoader from "../../../scripts/framework/lib/asset/AssetLoader";
 import { PanelComponent, PanelHideOption, PanelShowOption } from "../../../scripts/framework/lib/router/PanelComponent";
@@ -39,7 +39,7 @@ export default class BootPanelPrefab extends PanelComponent {
     private async _initGame() {
         // 加载 Bundle
         this._onLoadProgressChanged(0, "加载游戏设置...");
-        await AssetLoader.loadBundle(Bundles.GameBundle);
+        await AssetLoader.loadBundle(BundleConfigs.GameBundle);
 
         // 初始化游戏设置
         this._onLoadProgressChanged(0.1, "加载游戏设置...");
@@ -47,30 +47,30 @@ export default class BootPanelPrefab extends PanelComponent {
 
         // 提前加载通用弹窗面板
         this._onLoadProgressChanged(0.2, "加载游戏资源...");
-        await gg.panelRouter.loadAsync(Panels.loadingPanel);
+        await gg.panelRouter.loadAsync(PanelConfigs.loadingPanel);
 
         this._onLoadProgressChanged(0.3, "加载游戏资源...");
-        await gg.panelRouter.loadAsync(Panels.toastPanel);
+        await gg.panelRouter.loadAsync(PanelConfigs.toastPanel);
 
         // 加载游戏设置面板
         this._onLoadProgressChanged(0.4, "加载游戏资源...");
-        await gg.panelRouter.loadAsync(Panels.gameSettingPanel);
+        await gg.panelRouter.loadAsync(PanelConfigs.gameSettingPanel);
 
         // 加载游戏主面板
         this._onLoadProgressChanged(0.5, "加载游戏资源...");
-        await gg.panelRouter.loadAsync(Panels.gamePanel);
+        await gg.panelRouter.loadAsync(PanelConfigs.gamePanel);
 
         // 打开主面板
         this._onLoadProgressChanged(1.0);
         gg.panelRouter.show({
-            panel: Panels.gamePanel,
+            panel: PanelConfigs.gamePanel,
             onShowed: () => {
                 // 主面板打开完毕之后，隐藏并清理启动页面板相关资源（因为后续不会在用到）
                 gg.panelRouter.hide({
-                    panel: Panels.bootPanel,
+                    panel: PanelConfigs.bootPanel,
                     onHided: () => {
                         gg.panelRouter.destroy({
-                            panel: Panels.bootPanel,
+                            panel: PanelConfigs.bootPanel,
                         });
                     },
                 });

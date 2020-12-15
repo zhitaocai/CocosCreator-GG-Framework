@@ -4,7 +4,7 @@
  * @author caizhitao
  * @created 2020-12-15 21:03:22
  */
-export const Bundles = {
+export const BundleConfigs = {
     CommonBundle: "commonbundle",
     GameBundle: "gamebundle",
 };
