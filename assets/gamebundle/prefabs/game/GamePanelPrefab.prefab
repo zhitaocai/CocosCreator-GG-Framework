@@ -1909,7 +1909,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 233.44,
+      "width": 300,
       "height": 75.6
     },
     "_anchorPoint": {
@@ -1988,8 +1988,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "Example",
-    "_N$string": "Example",
+    "_string": "游戏主面板",
+    "_N$string": "游戏主面板",
     "_fontSize": 60,
     "_lineHeight": 60,
     "_enableWrapText": true,

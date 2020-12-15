@@ -1,6 +1,7 @@
 import { Panels } from "../../../mainbundle/scripts/configs/Panels";
 import { gg } from "../../../scripts/framework/gg";
 import { PanelComponent, PanelHideOption, PanelShowOption } from "../../../scripts/framework/lib/router/PanelComponent";
+import { GameSettingEvent } from "./GameSettingEvent";
 import GameSettingModule from "./GameSettingModule";
 
 const { ccclass, property } = cc._decorator;
@@ -80,14 +81,17 @@ export default class GameSettingPanelPrefab extends PanelComponent {
 
     private _onMusicVolumeChanged(slider: cc.Slider) {
         GameSettingModule.data.musicVolume = slider.progress;
+        gg.eventManager.emit(GameSettingEvent.OnMusicVolumeChanged);
     }
 
     private _onSoundVolumeChanged(slider: cc.Slider) {
         GameSettingModule.data.soundVolume = slider.progress;
+        gg.eventManager.emit(GameSettingEvent.OnSoundVolumeChanged);
     }
 
     private _onVibrateChanged(toggle: cc.Toggle) {
         GameSettingModule.data.enableVibrate = toggle.isChecked;
+        gg.eventManager.emit(GameSettingEvent.OnVibrateChanged);
     }
 
     private _playPanelShowAnim(onAnimCompleted: Function) {
