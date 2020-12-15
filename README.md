@@ -53,31 +53,32 @@ assets
 ┃    ┣━━ prefabs
 ┃    ┃   ┣━━ boot
 ┃    ┃   ┃   ┗━━ BootPanelPrefab.prefab (游戏启动页面板 Prefab)
-┃    ┃   ┣━━ popwindow
-┃    ┃   ┃   ┣━━ LoadingPanelPrefab.prefab (全局通用 Loading 面板 Prefab)
-┃    ┃   ┃   ┗━━ ToastPanelPrefab.prefab (全局通用 Toast 面板 Prefab)
-┃    ┃   ┗━━ setting
-┃    ┃       ┗━━ GameSettingPanelPrefab.prefab (游戏设置面板 Prefab)
+┃    ┃   ┗━━ popwindow
+┃    ┃       ┣━━ LoadingPanelPrefab.prefab (全局通用 Loading 面板 Prefab)
+┃    ┃       ┗━━ ToastPanelPrefab.prefab (全局通用 Toast 面板 Prefab)
 ┃    ┣━━ scripts
 ┃    ┃   ┣━━ boot
 ┃    ┃   ┃   ┗━━ BootPanelPrefab.ts (游戏启动页面板 Prefab 的控制脚本)
-┃    ┃   ┣━━ popwindow
-┃    ┃   ┃   ┣━━ LoadingPanelPrefab.ts (全局通用 Loading 面板 Prefab 的控制脚本)
-┃    ┃   ┃   ┗━━ ToastPanelPrefab.ts (全局通用 Toast 面板 Prefab 的控制脚本)
-┃    ┃   ┗━━ setting
-┃    ┃       ┣━━ GameSettingConst.ts (游戏设置模块的常量)
-┃    ┃       ┣━━ GameSettingModel.ts (游戏设置模块的数据)
-┃    ┃       ┣━━ GameSettingModule.ts (游戏设置模块的逻辑控制)
-┃    ┃       ┗━━ GameSettingPanelPrefab.ts (游戏设置面板 Prefab 的控制脚本)
+┃    ┃   ┗━━ popwindow
+┃    ┃       ┣━━ LoadingPanelPrefab.ts (全局通用 Loading 面板 Prefab 的控制脚本)
+┃    ┃       ┗━━ ToastPanelPrefab.ts (全局通用 Toast 面板 Prefab 的控制脚本)
 ┃    ┗━━ textures
 ┃        ┗━━ xxx (自行组织)
 ┗━━ gamebundle (游戏模块 bundle 优先级: 5)
      ┣━━ prefabs
-     ┃   ┗━━ game
-     ┃       ┗━━ GamePanelPrefab.prefab (游戏主面板 Prefab)
+     ┃   ┣━━ game
+     ┃   ┃   ┗━━ GamePanelPrefab.prefab (游戏主面板 Prefab)
+     ┃   ┗━━ setting
+     ┃       ┗━━ GameSettingPanelPrefab.prefab (游戏设置面板 Prefab)
      ┣━━ scripts
-     ┃   ┗━━ game
-     ┃       ┗━━ GamePanelPrefab.prefab (游戏主面板 Prefab 的控制脚本)
+     ┃   ┣━━ game
+     ┃   ┃   ┗━━ GamePanelPrefab.prefab (游戏主面板 Prefab 的控制脚本)
+     ┃   ┗━━ setting
+     ┃       ┣━━ GameSettingConst.ts (游戏设置模块的常量)
+     ┃       ┣━━ GameSettingEvent.ts (游戏设置模块的广播事件)
+     ┃       ┣━━ GameSettingModel.ts (游戏设置模块的数据模型)
+     ┃       ┣━━ GameSettingModule.ts (游戏设置模块的逻辑控制)
+     ┃       ┗━━ GameSettingPanelPrefab.ts (游戏设置面板 Prefab 的控制脚本)
      ┗━━ textures
          ┗━━ xxx (自行组织)
 ```
@@ -87,6 +88,7 @@ assets
 1. 除了 `mainBundle` 文件夹之外，其他 `*bundle` 后缀的文件夹都需要配置为 bundle
 2. 此框架项目取消了使用 `resources` 的 bundle ，只保留了 `main`, `internal` 两个内置 bundle （对于内置 bundle 的理解可以阅读 [官方文档](http://docs.cocos.com/creator/manual/zh/asset-manager/bundle.html) ）
 3. 注意bundle优先级， `mainbundle > commonbundle > gamebundle > ...bundle`
+4. 模块结构可以参考 `gamebundle/scripts/setting`
 
 ### Q & A
 
