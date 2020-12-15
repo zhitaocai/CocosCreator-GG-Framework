@@ -1,5 +1,7 @@
+import { Bundles } from "../../../mainbundle/scripts/configs/Bundles";
 import { Panels } from "../../../mainbundle/scripts/configs/Panels";
 import { gg } from "../../../scripts/framework/gg";
+import AssetLoader from "../../../scripts/framework/lib/asset/AssetLoader";
 import { PanelComponent, PanelHideOption, PanelShowOption } from "../../../scripts/framework/lib/router/PanelComponent";
 import GameSettingModule from "../setting/GameSettingModule";
 
@@ -35,23 +37,27 @@ export default class BootPanelPrefab extends PanelComponent {
     }
 
     private async _initGame() {
-        // 初始化游戏设置
+        // 加载 Bundle
         this._onLoadProgressChanged(0, "加载游戏设置...");
+        await AssetLoader.loadBundle(Bundles.GameBundle);
+
+        // 初始化游戏设置
+        this._onLoadProgressChanged(0.1, "加载游戏设置...");
         GameSettingModule.initSettingConfig();
 
         // 提前加载通用弹窗面板
-        this._onLoadProgressChanged(0.1, "加载游戏资源...");
+        this._onLoadProgressChanged(0.2, "加载游戏资源...");
         await gg.panelRouter.loadAsync(Panels.loadingPanel);
 
-        this._onLoadProgressChanged(0.2, "加载游戏资源...");
+        this._onLoadProgressChanged(0.3, "加载游戏资源...");
         await gg.panelRouter.loadAsync(Panels.toastPanel);
 
         // 加载游戏设置面板
-        this._onLoadProgressChanged(0.3, "加载游戏资源...");
+        this._onLoadProgressChanged(0.4, "加载游戏资源...");
         await gg.panelRouter.loadAsync(Panels.gameSettingPanel);
 
         // 加载游戏主面板
-        this._onLoadProgressChanged(0.4, "加载游戏资源...");
+        this._onLoadProgressChanged(0.5, "加载游戏资源...");
         await gg.panelRouter.loadAsync(Panels.gamePanel);
 
         // 打开主面板

@@ -1,4 +1,5 @@
 import { PanelConfig } from "../../../scripts/framework/lib/router/PanelConfig";
+import { Bundles } from "./Bundles";
 
 /**
  * 面板图层层级（层级大的显示在最前面）
@@ -26,7 +27,7 @@ export const Panels = {
      * 游戏启动页面板
      */
     bootPanel: <PanelConfig>{
-        prefabPath: "commonbundle/prefabs/boot/BootPanelPrefab",
+        prefabPath: `${Bundles.CommonBundle}/prefabs/boot/BootPanelPrefab`,
         layerZIndex: PanelLayerEnum.UILayer,
     },
 
@@ -34,7 +35,7 @@ export const Panels = {
      * 游戏设置面板
      */
     gameSettingPanel: <PanelConfig>{
-        prefabPath: "commonbundle/prefabs/setting/GameSettingPanelPrefab",
+        prefabPath: `${Bundles.CommonBundle}/prefabs/setting/GameSettingPanelPrefab`,
         layerZIndex: PanelLayerEnum.UILayer,
     },
 
@@ -42,7 +43,7 @@ export const Panels = {
      * 游戏主面板
      */
     gamePanel: <PanelConfig>{
-        prefabPath: "gamebundle/prefabs/game/GamePanelPrefab",
+        prefabPath: `${Bundles.GameBundle}/prefabs/game/GamePanelPrefab`,
         layerZIndex: PanelLayerEnum.UILayer,
     },
 
@@ -53,7 +54,7 @@ export const Panels = {
      * 通用加载页面
      */
     loadingPanel: <PanelConfig>{
-        prefabPath: "commonbundle/prefabs/popwindow/LoadingPanelPrefab",
+        prefabPath: `${Bundles.CommonBundle}/prefabs/popwindow/LoadingPanelPrefab`,
         layerZIndex: PanelLayerEnum.PopLayer,
     },
 
@@ -61,7 +62,7 @@ export const Panels = {
      * 通用Toast页面
      */
     toastPanel: <PanelConfig>{
-        prefabPath: "commonbundle/prefabs/popwindow/ToastPanelPrefab",
+        prefabPath: `${Bundles.CommonBundle}/prefabs/popwindow/ToastPanelPrefab`,
         layerZIndex: PanelLayerEnum.PopLayer,
     },
 };
