@@ -1,6 +1,7 @@
-import { Panels } from "../../../mainbundle/scripts/configs/Panels";
+import { PanelConfigs } from "../../../mainbundle/scripts/configs/PanelConfigs";
 import { gg } from "../../../scripts/framework/gg";
 import { PanelComponent, PanelHideOption, PanelShowOption } from "../../../scripts/framework/lib/router/PanelComponent";
+import { GameSettingEvent } from "./GameSettingEvent";
 import GameSettingModule from "./GameSettingModule";
 
 const { ccclass, property } = cc._decorator;
@@ -28,8 +29,11 @@ export default class GameSettingPanelPrefab extends PanelComponent {
     @property(cc.Toggle)
     vibrateToggle: cc.Toggle = null;
 
-    @property(cc.Button)
-    closeBtn: cc.Button = null;
+    @property({
+        type: [cc.Button],
+        tooltip: "关闭按钮",
+    })
+    closeBtns: cc.Button[] = [];
 
     onLoad() {
         this.musicVolumeSlider.node.on("slide", this._onMusicVolumeChanged, this);
@@ -44,7 +48,9 @@ export default class GameSettingPanelPrefab extends PanelComponent {
         this.vibrateToggle.isChecked = GameSettingModule.data.enableVibrate;
 
         // 让关闭按钮可以点击
-        this.closeBtn.interactable = true;
+        this.closeBtns.forEach((clostBtn) => {
+            clostBtn.interactable = true;
+        });
 
         // 播放展示动画
         this._playPanelShowAnim(() => {
@@ -54,7 +60,9 @@ export default class GameSettingPanelPrefab extends PanelComponent {
 
     hide(option: PanelHideOption): void {
         // 让关闭按钮不可以点击
-        this.closeBtn.interactable = false;
+        this.closeBtns.forEach((clostBtn) => {
+            clostBtn.interactable = false;
+        });
 
         // 面板退出的时候，持久化游戏设置，保存到本地缓存中
         GameSettingModule.saveSettingConfig();
@@ -67,20 +75,23 @@ export default class GameSettingPanelPrefab extends PanelComponent {
 
     onCloseBtnClick() {
         gg.panelRouter.hide({
-            panel: Panels.gameSettingPanel,
+            panel: PanelConfigs.gameSettingPanel,
         });
     }
 
     private _onMusicVolumeChanged(slider: cc.Slider) {
         GameSettingModule.data.musicVolume = slider.progress;
+        gg.eventManager.emit(GameSettingEvent.OnMusicVolumeChanged);
     }
 
     private _onSoundVolumeChanged(slider: cc.Slider) {
         GameSettingModule.data.soundVolume = slider.progress;
+        gg.eventManager.emit(GameSettingEvent.OnSoundVolumeChanged);
     }
 
     private _onVibrateChanged(toggle: cc.Toggle) {
         GameSettingModule.data.enableVibrate = toggle.isChecked;
+        gg.eventManager.emit(GameSettingEvent.OnVibrateChanged);
     }
 
     private _playPanelShowAnim(onAnimCompleted: Function) {

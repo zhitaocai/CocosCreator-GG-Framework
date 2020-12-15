@@ -1,5 +1,5 @@
 import { gg } from "../../scripts/framework/gg";
-import { Panels } from "./configs/Panels";
+import { PanelConfigs } from "./configs/PanelConfigs";
 
 const { ccclass, property } = cc._decorator;
 
@@ -20,11 +20,11 @@ export default class MainSceneCtrl extends cc.Component {
 
     async start() {
         // 加载启动页
-        await gg.panelRouter.loadAsync(Panels.bootPanel);
+        await gg.panelRouter.loadAsync(PanelConfigs.bootPanel);
 
         // 打开启动页
         gg.panelRouter.show({
-            panel: Panels.bootPanel,
+            panel: PanelConfigs.bootPanel,
         });
     }
 }

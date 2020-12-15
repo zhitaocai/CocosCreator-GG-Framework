@@ -1,4 +1,4 @@
-import { Panels } from "../../../mainbundle/scripts/configs/Panels";
+import { PanelConfigs } from "../../../mainbundle/scripts/configs/PanelConfigs";
 import { gg } from "../../../scripts/framework/gg";
 import { PanelComponent, PanelHideOption, PanelShowOption } from "../../../scripts/framework/lib/router/PanelComponent";
 
@@ -84,7 +84,7 @@ export default class ToastPanelPrefab extends PanelComponent {
         this.unscheduleAllCallbacks();
         this.scheduleOnce(() => {
             gg.panelRouter.hide({
-                panel: Panels.toastPanel,
+                panel: PanelConfigs.toastPanel,
             });
         }, duration);
     }
