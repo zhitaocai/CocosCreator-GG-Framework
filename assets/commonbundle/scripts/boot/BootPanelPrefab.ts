@@ -1,4 +1,4 @@
-import GameSettingModule from "../../../gamebundle/scripts/setting/GameSettingModule";
+import GameSettingModule from "../../../gamebundle/scripts/gamesetting/GameSettingModule";
 import { Bundles } from "../../../mainbundle/scripts/configs/Bundles";
 import { Panels } from "../../../mainbundle/scripts/configs/Panels";
 import { gg } from "../../../scripts/framework/gg";

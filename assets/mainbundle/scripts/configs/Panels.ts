@@ -42,7 +42,7 @@ export const Panels = {
      * 游戏设置面板
      */
     gameSettingPanel: <PanelConfig>{
-        prefabPath: `${Bundles.GameBundle}/prefabs/setting/GameSettingPanelPrefab`,
+        prefabPath: `${Bundles.GameBundle}/prefabs/gamesetting/GameSettingPanelPrefab`,
         layerZIndex: PanelLayerEnum.UILayer,
     },
 
