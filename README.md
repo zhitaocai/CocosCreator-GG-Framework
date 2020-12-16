@@ -1,6 +1,7 @@
 # Cocos Creator GG Framework
 
 [![](https://img.shields.io/badge/Release-0.1.0-orange.svg)](CHANGELOG.md)
+[![](https://img.shields.io/badge/LICENSE-MIT-green.svg)](LICENSE)
 [![](https://img.shields.io/badge/Support-Cocos%20Creator%202.4.3-green.svg)](http://www.cocos.com/creator)
 
 Cocos Creator GG Framework 是一个让游戏快速搭建跑起来的框架，意为 Go Game! 
@@ -69,12 +70,12 @@ assets
      ┣━━ prefabs
      ┃   ┣━━ game
      ┃   ┃   ┗━━ GamePanelPrefab.prefab (游戏主面板 Prefab)
-     ┃   ┗━━ setting
+     ┃   ┗━━ gamesetting
      ┃       ┗━━ GameSettingPanelPrefab.prefab (游戏设置面板 Prefab)
      ┣━━ scripts
      ┃   ┣━━ game
      ┃   ┃   ┗━━ GamePanelPrefab.prefab (游戏主面板 Prefab 的控制脚本)
-     ┃   ┗━━ setting
+     ┃   ┗━━ gamesetting
      ┃       ┣━━ GameSettingConst.ts (游戏设置模块的常量)
      ┃       ┣━━ GameSettingEvent.ts (游戏设置模块的广播事件)
      ┃       ┣━━ GameSettingModel.ts (游戏设置模块的数据模型)
