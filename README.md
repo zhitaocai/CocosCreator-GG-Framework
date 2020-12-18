@@ -15,6 +15,7 @@ GG 框架基于 TypeScript 语言，框架入口为 `gg`，只需要在编辑器
 ## 一、项目规范
 
 - 采用[CocosCreator 官方推荐编码规范](http://docs.cocos.com/creator/manual/zh/scripting/reference/coding-standards.html?h=%E8%A7%84%E8%8C%83)
+- 项目采用 [TypeScript+EsLint](https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/README.md) 作为规范（TsLint 已经停止维护，TypeScript+Eslint 是未来）
 - 采用[VsCode 上的 Prettier 插件进行格式化控制](https://juejin.im/post/5a791d566fb9a0634853400e)
     1. 项目采用了 VsCode 上的 **Prettier** 插件进行代码格式化控制
     2. `.prettierrc` 文件为 Prettier 插件的配置文件，在 VsCode 运行时，会读取这个格式化控制配置文件
@@ -25,19 +26,18 @@ GG 框架基于 TypeScript 语言，框架入口为 `gg`，只需要在编辑器
 ## 二、项目开发环境配置
 
 1. 安装 [Cocos Creator 2.4.3](https://www.cocos.com/)
-2. 安装 [NodeJS](https://nodejs.org/en/)，安装成功后，建议全局下载以下 npm 包（可跳过）：
+2. 安装 [NodeJS](https://nodejs.org/en/)，安装成功后，安装依赖 npm 包
    ```
-   npm install typescript -g
-   npm install tslint -g
+   npm install 
    ```     
-3. 推荐使用 VSCode + TypeScript    
+3. 推荐使用 VSCode + TypeScript
 
 ## 三、项目详细介绍
 
 项目基础架构为 **单场景 + 多Prefab** 。其中，
 
 * 不同的 Prefab 将通过 AssetBundle 去进行组织以形成模块。形成模块的目的解耦，提高复用性，方便跨项目使用
-* 在跨项目使用的时候，我们的数据结构和逻辑基本是可以服用的，只有UI可能会有差异
+* 在跨项目使用的时候，我们的数据结构和逻辑基本是可以复用的，只有UI可能会有差异
 
 项目结构概览：
 
@@ -119,7 +119,7 @@ assets
 
 ## 支持一下作者吧
 
-如果此项目对你学习和理解Shader有帮助，不妨支持一下我吧~
+如果此项目对你学习有帮助，不妨支持一下我吧~
 
 ps：支持扫码催更哦🤣🤣🤣👇👇👇👇
 
