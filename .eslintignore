@@ -1,0 +1,7 @@
+# This file will tell ESLint which files and folders it should never lint.
+
+# don't ever lint node_modules
+node_modules
+
+# don't ever lint node_modules
+build

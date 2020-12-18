@@ -24,8 +24,6 @@
   "homepage": "https://github.com/zhitaocai/CocosCreator-GG-Framework#readme",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.10.0",
-    "@typescript-eslint/parser": "^4.10.0",
-    "eslint": "^7.15.0",
-    "typescript": "^4.1.3"
+    "@typescript-eslint/parser": "^4.10.0"
   }
 }

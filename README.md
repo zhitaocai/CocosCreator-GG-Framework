@@ -28,7 +28,10 @@ GG 框架基于 TypeScript 语言，框架入口为 `gg`，只需要在编辑器
 1. 安装 [Cocos Creator 2.4.3](https://www.cocos.com/)
 2. 安装 [NodeJS](https://nodejs.org/en/)，安装成功后，安装依赖 npm 包
    ```
-   npm install 
+   # 全局安装 ESLint 和 TypeScript
+   npm install -g eslint typescript
+   # 安装本项目的所有依赖（目前只有ESLint相关依赖，用于规范项目）
+   npm install
    ```     
 3. 推荐使用 VSCode + TypeScript
 
