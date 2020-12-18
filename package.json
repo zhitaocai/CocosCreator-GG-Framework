@@ -1,8 +1,8 @@
 {
   "name": "cocoscreator-gg-framework",
   "version": "1.0.0",
-  "description": "[![](https://img.shields.io/badge/Release-0.0.0-orange.svg)](CHANGELOG.md) [![](https://img.shields.io/badge/Support-web-green.svg)]() [![](https://img.shields.io/badge/Support-minigame-green.svg)]() [![](https://img.shields.io/badge/Support-Android-green.svg)]() [![](https://img.shields.io/badge/Support-iOS-green.svg)]()",
-  "main": "index.js",
+  "description": "Cocos Creator Go Game Framework",
+  "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,5 +21,11 @@
   "bugs": {
     "url": "https://github.com/zhitaocai/CocosCreator-GG-Framework/issues"
   },
-  "homepage": "https://github.com/zhitaocai/CocosCreator-GG-Framework#readme"
+  "homepage": "https://github.com/zhitaocai/CocosCreator-GG-Framework#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "@typescript-eslint/parser": "^4.10.0",
+    "eslint": "^7.15.0",
+    "typescript": "^4.1.3"
+  }
 }
