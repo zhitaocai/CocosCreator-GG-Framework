@@ -3,5 +3,14 @@
 # don't ever lint node_modules
 node_modules
 
-# don't ever lint node_modules
+# don't ever lint build
 build
+
+# don't ever lint *.d.ts
+*.d.ts
+
+# don't ever lint temp
+temp
+
+# don't ever lint library
+library
