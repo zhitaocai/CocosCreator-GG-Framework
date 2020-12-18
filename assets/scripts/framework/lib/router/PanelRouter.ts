@@ -96,10 +96,10 @@ export default class PanelRouter {
     /**
      * （Promise）加载面板资源（加载到内存）
      */
-    loadAsync(panelConfig: PanelConfig): Promise<cc.Prefab> {
-        return new Promise<cc.Prefab>((resolve, reject) => {
-            this.load(panelConfig, null, (error: Error, prefab: cc.Prefab) => {
-                error ? reject(error) : resolve(prefab);
+    loadAsync(panelConfig: PanelConfig): Promise<void> {
+        return new Promise<void>((resolve, reject) => {
+            this.load(panelConfig, (error: Error) => {
+                error ? reject(error) : resolve();
             });
         });
     }
@@ -107,24 +107,27 @@ export default class PanelRouter {
     /**
      * 加载面板资源（加载到内存）
      */
-    load(panelConfig: PanelConfig, onProgress: (finish: number, total: number, item: cc.AssetManager.RequestItem) => void, onCompleted: (error: Error, prefab: cc.Prefab) => void) {
+    load(panelConfig: PanelConfig, onCompleted: (error?: Error) => void) {
         let prefabPath = panelConfig.prefabPath;
         let panelCache = this._panelCacheMap.get(prefabPath);
-        if (!panelCache) {
-            this._enabledLog && gg.logger.log(PanelRouter.Tag, prefabPath, "尝试加载面板", "面板还不存在，将开始加载面板");
-
-            // 初始化面板状态并记录下来
-            panelCache = {
-                node: null,
-                prefab: null,
-                state: PanelStateEnum.Loading,
-            };
-            this._panelCacheMap.set(prefabPath, panelCache);
+        if (panelCache) {
+            this._enabledLog && gg.logger.log(PanelRouter.Tag, prefabPath, "尝试加载面板", "面板已加载成功");
+            onCompleted(null);
+            return;
         }
-        panelCache.state = PanelStateEnum.Loading;
+        this._enabledLog && gg.logger.log(PanelRouter.Tag, prefabPath, "尝试加载面板", "面板还不存在，将开始加载面板");
+
+        // 初始化面板状态并记录下来
+        panelCache = {
+            node: null,
+            prefab: null,
+            state: PanelStateEnum.Loading,
+        };
+        this._panelCacheMap.set(prefabPath, panelCache);
 
         // 开始加载面板
-        this._loadBundlePrefab(panelConfig, onProgress, (error: Error, prefab: cc.Prefab) => {
+        panelCache.state = PanelStateEnum.Loading;
+        this._loadBundlePrefab(panelConfig, null, (error: Error, prefab: cc.Prefab) => {
             // 加载完毕后，需要在此获取面板状态
             // 因为加载是一个过程，这个过程中，面板可能被销毁了等等之类，因此加载完毕后，重新获取面板状态
             panelCache = this._panelCacheMap.get(prefabPath);
@@ -179,7 +182,7 @@ export default class PanelRouter {
                     }
                 }
             }
-            onCompleted(error, prefab);
+            onCompleted(error);
         });
     }
 
