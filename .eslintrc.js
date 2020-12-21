@@ -1,92 +1,123 @@
-// module.exports = {
-//     root: true,
-
-//     /**
-//      * 解析器：使用 ESLint 解析 TypeScript 语法
-//      *
-//      * tells ESLint to use the parser package you installed (@typescript-eslint/parser)
-//      *
-//      * * This allows ESLint to understand TypeScript syntax.
-//      * * This is required, or else ESLint will throw errors as it tries to parse TypeScript code as if it were regular JavaScript.
-//      */
-//     parser: "@typescript-eslint/parser",
-
-//     /**
-//      * 插件
-//      *
-//      * tells ESLint to load the plugin package you installed (@typescript-eslint/eslint-plugin).
-//      *
-//      * * This allows you to use the rules within your codebase.
-//      */
-//     plugins: [
-
-//         /**
-//          * 在 ESLint 中加载此插件，用于配置 TypeScript 校验规则
-//          */
-//         // "@typescript-eslint"
-//         "@typescript-eslint/eslint-plugin"
-//     ],
-
-//     /**
-//      * 扩展
-//      *
-//      * tells ESLint that your config extends the given configurations
-//      */
-//     extends: [
-//         /**
-//          * ESLint 共享规则配置，此为 ESlint 内置的推荐校验规则配置（也被称为最佳规则实践）
-//          *
-//          * ESLint's inbuilt "recommended" config - it turns on a small, sensible set of rules which lint for well-known best-practices.
-//          */
-//         "eslint:recommended",
-
-//         /**
-//          * "recommended" config - it's just like eslint:recommended, except it only turns on rules from our TypeScript-specific plugin.
-//          */
-//         "plugin:@typescript-eslint/recommended",
-
-//         // 'prettier',
-//         // 'prettier/@typescript-eslint',
-
-//     ],
-// };
-//
 module.exports = {
     root: true,
+
+    /**
+     * 解析器：使用 ESLint 解析 TypeScript 语法
+     *
+     * tells ESLint to use the parser package you installed (@typescript-eslint/parser)
+     *
+     * * This allows ESLint to understand TypeScript syntax.
+     * * This is required, or else ESLint will throw errors as it tries to parse TypeScript code as if it were regular JavaScript.
+     */
     parser: "@typescript-eslint/parser",
-    plugins: ["@typescript-eslint"],
+
+    /**
+     * ESLint 插件
+     *
+     * tells ESLint to load the plugin package you installed
+     */
+    plugins: [
+        /**
+         * 在 ESLint 中加载此插件，用于配置 TypeScript 校验规则
+         */
+        "@typescript-eslint",
+    ],
+
+    /**
+     * 扩展
+     *
+     * tells ESLint that your config extends the given configurations
+     */
     extends: [
-        // "eslint:recommended", "plugin:@typescript-eslint/recommended",
+        // ESLint 共享规则配置，此为 ESlint 内置的推荐校验规则配置（也被称为最佳规则实践）
+        // ESLint's inbuilt "recommended" config - it turns on a small, sensible set of rules which lint for well-known best-practices.
+        // 当 ESLint 的原生规则`eslint:recommended` 和 `plugin:@typescript-eslint/recommended` 的规则太多了，而且原生的规则有一些在 TypeScript 中支持的不好，需要禁用掉。
+        // "eslint:recommended",
+        // "plugin:@typescript-eslint/recommended",
+
+        // 因此最后采用 AlloyTeam 的 ESLintConfig
+        // @see https://github.com/AlloyTeam/eslint-config-alloy
         "alloy",
         "alloy/typescript",
+
+        // 格式化扩展
         // "prettier",
         // "prettier/@typescript-eslint"
     ],
-    // rules: {
-    //   // 禁止使用 var
-    //   'no-var': "error",
-    //   // 优先使用 interface 而不是 type
-    //   '@typescript-eslint/consistent-type-definitions': [
-    //       "error",
-    //       "interface"
-    //   ]
-    // }
-    rules: {
-        // // disable the rule for all files
-        // "@typescript-eslint/explicit-member-accessibility": "off",
-        // // 强制使用 method 签名语法而不是 property 签名语法
-        // "@typescript-eslint/method-signature-style": "method"
+
+    globals: {
+        /**
+         * 指定全局变量 cc ，这样子就不会触发 no-undef 的规则
+         */
+        cc: "readonly",
     },
-    overrides: [
-        {
-            // enable the rule specifically for TypeScript files
-            files: ["*.ts", "*.tsx"],
-            rules: {
-                // "@typescript-eslint/explicit-member-accessibility": ["error"]
-                "@typescript-eslint/explicit-member-accessibility": "off",
-                // 强制使用 method 签名语法而不是 property 签名语法
-                "@typescript-eslint/method-signature-style": "method",
+    /**
+     * 默认规则
+     *
+     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules
+     */
+    rules: {
+        /**
+         * 禁止使用 var
+         */
+        "no-var": ["error"],
+
+        eqeqeq: "off",
+        "no-eq-null": "off",
+
+        /**
+         * 函数最多参数数量为 3 个（默认值），超过之后警告
+         */
+        "max-params": ["warn"],
+
+        /**
+         * 强制使用 interface 而不是 type 去定义对象类型
+         */
+        "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+
+        /**
+         * method 和 property 不需要显式声明 public 访问修饰符
+         */
+        "@typescript-eslint/explicit-member-accessibility": [
+            "error",
+            {
+                accessibility: "no-public",
             },
-        },
-    ],
+        ],
+
+        /**
+         * 强制使用 method 签名语法而不是 property 签名语法
+         */
+        "@typescript-eslint/method-signature-style": ["error", "method"],
+
+        /**
+         * 强制使用 method 签名语法而不是 property 签名语法
+         */
+        "@typescript-eslint/member-ordering": ["off"],
+
+        /**
+         * 关闭 optional-chain 语法改进提示，因为 cc 支持的 ts 版本不够高，不能用该语法糖
+         */
+        "@typescript-eslint/prefer-optional-chain": ["off"],
+    },
+
+    // /**
+    //  * 指定部分文件覆盖规则
+    //  */
+    // overrides: [
+    //     {
+    //         // enable the rule specifically for TypeScript files
+    //         files: ["*.ts", "*.tsx"],
+    //         rules: {
+    //             "@typescript-eslint/explicit-member-accessibility": ["no-public"],
+    //             // 强制使用 method 签名语法而不是 property 签名语法
+    //             "@typescript-eslint/method-signature-style": ["method"],
+
+    //             /**
+    //              * 函数最多参数数量 4 个
+    //              */
+    //             "max-params": 4,
+    //         },
+    //     },
+    // ],
 };
