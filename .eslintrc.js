@@ -47,9 +47,16 @@ module.exports = {
 
     globals: {
         /**
-         * 指定全局变量 cc ，这样子就不会触发 no-undef 的规则
+         * 指定Cocos Creator相关全局变量，这样子就不会触发 no-undef 的规则
          */
         cc: "readonly",
+        CC_JSB: "readonly",
+        CC_NATIVERENDERER: "readonly",
+        CC_EDITOR: "readonly",
+        CC_PREVIEW: "readonly",
+        CC_TEST: "readonly",
+        CC_DEBUG: "readonly",
+        Editor: "readonly",
     },
     /**
      * 默认规则
