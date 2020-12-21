@@ -61,7 +61,7 @@ module.exports = {
         "alloy/typescript"
         // "prettier",
         // "prettier/@typescript-eslint"
-    ]
+    ],
     // rules: {
     //   // 禁止使用 var
     //   'no-var': "error",
@@ -71,4 +71,18 @@ module.exports = {
     //       "interface"
     //   ]
     // }
+    rules: {
+        // disable the rule for all files
+        "@typescript-eslint/explicit-member-accessibility": "off"
+    },
+    overrides: [
+        {
+            // enable the rule specifically for TypeScript files
+            files: ["*.ts", "*.tsx"],
+            rules: {
+                // "@typescript-eslint/explicit-member-accessibility": ["error"]
+                "@typescript-eslint/explicit-member-accessibility": "off"
+            }
+        }
+    ]
 };
