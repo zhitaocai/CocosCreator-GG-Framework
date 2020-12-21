@@ -14,8 +14,8 @@ export abstract class EnhancedComponent extends cc.Component {
      * @param generator 生成器
      * @param duration 持续时间（ms），每次执行 Generator 的操作时，最长可持续执行时长，如：8ms，即正常1帧（16ms）下，分一半时间给此逻辑执行
      */
-    executePreFrame(generator: Generator, duration: number): Promise<any> {
-        return new Promise<any>((resolve, reject) => {
+    executePreFrame(generator: Generator, duration: number): Promise<void> {
+        return new Promise<void>((resolve, reject) => {
             let gen = generator;
             let runGenerator = () => {
                 let startTime = new Date().getTime();

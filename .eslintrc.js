@@ -58,7 +58,7 @@ module.exports = {
     extends: [
         // "eslint:recommended", "plugin:@typescript-eslint/recommended",
         "alloy",
-        "alloy/typescript"
+        "alloy/typescript",
         // "prettier",
         // "prettier/@typescript-eslint"
     ],
@@ -72,8 +72,10 @@ module.exports = {
     //   ]
     // }
     rules: {
-        // disable the rule for all files
-        "@typescript-eslint/explicit-member-accessibility": "off"
+        // // disable the rule for all files
+        // "@typescript-eslint/explicit-member-accessibility": "off",
+        // // 强制使用 method 签名语法而不是 property 签名语法
+        // "@typescript-eslint/method-signature-style": "method"
     },
     overrides: [
         {
@@ -81,8 +83,10 @@ module.exports = {
             files: ["*.ts", "*.tsx"],
             rules: {
                 // "@typescript-eslint/explicit-member-accessibility": ["error"]
-                "@typescript-eslint/explicit-member-accessibility": "off"
-            }
-        }
-    ]
+                "@typescript-eslint/explicit-member-accessibility": "off",
+                // 强制使用 method 签名语法而不是 property 签名语法
+                "@typescript-eslint/method-signature-style": "method",
+            },
+        },
+    ],
 };

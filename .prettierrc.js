@@ -1,4 +1,5 @@
 // prettier.config.js or .prettierrc.js
+// @see https://prettier.io/docs/en/options.html
 module.exports = {
     /**
      * 一行最多的字符数
@@ -31,9 +32,9 @@ module.exports = {
     quoteProps: "as-needed",
 
     /**
-     * 末尾不需要逗号
+     * 末尾不需要逗号(在ES5中有效的结尾逗号)
      */
-    trailingComma: "none",
+    trailingComma: "es5",
 
     /**
      * 大括号内的首尾需要空格
@@ -79,10 +80,10 @@ module.exports = {
     /**
      * 根据显示样式决定 html 要不要折行
      */
-    htmlWhitespaceSensitivity: "css"
+    htmlWhitespaceSensitivity: "css",
 
     /**
      * 换行符使用 lf
      */
-    // endOfLine: "lf"
+    endOfLine: "lf",
 };
