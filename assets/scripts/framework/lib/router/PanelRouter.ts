@@ -469,7 +469,7 @@ export default class PanelRouter {
     }
 }
 
-type PanelCache = {
+interface PanelCache {
     /**
      * 面板节点（在面板状态为 Loading 和 LoadingFailure ）的时候，节点是不存在的
      */
@@ -484,7 +484,7 @@ type PanelCache = {
      * 面板状态
      */
     state: PanelStateEnum;
-};
+}
 
 export interface CommonPanelOption {
     /**
@@ -503,22 +503,22 @@ export interface ShowPanelOption extends CommonPanelOption {
      * 展示动画播完完毕之后回调（如果没有展示动画，则立即回调）
      *
      */
-    onShowed?: (
+    onShowed?(
         /**
          * 展示错误时，此参数存在
          */
         error?: Error
-    ) => void;
+    ): void;
 }
 
 export interface HidePanelOption extends CommonPanelOption {
     /**
      * 隐藏动画播完完毕之后回调（如果没有隐藏动画，则立即回调）
      */
-    onHided?: (
+    onHided?(
         /**
          * 隐藏错误时，此参数存在
          */
         error?: Error
-    ) => void;
+    ): void;
 }

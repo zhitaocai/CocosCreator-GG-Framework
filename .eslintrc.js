@@ -54,6 +54,7 @@ module.exports = {
     /**
      * 默认规则
      *
+     * @see https://eslint.org/docs/rules/
      * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules
      */
     rules: {
@@ -99,6 +100,11 @@ module.exports = {
          * 关闭 optional-chain 语法改进提示，因为 cc 支持的 ts 版本不够高，不能用该语法糖
          */
         "@typescript-eslint/prefer-optional-chain": ["off"],
+
+        /**
+         * 允许显式声明 number, string, boolean 的变量或参数值
+         */
+        "@typescript-eslint/no-inferrable-types": ["off"],
     },
 
     // /**

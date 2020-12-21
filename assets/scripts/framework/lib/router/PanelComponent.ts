@@ -21,7 +21,7 @@ export abstract class PanelComponent extends EnhancedComponent {
     abstract hide(option: PanelHideOption): void;
 }
 
-export type PanelHideOption = {
+export interface PanelHideOption {
     /**
      * 隐藏时传入的数据
      */
@@ -31,9 +31,9 @@ export type PanelHideOption = {
      * 隐藏动画完毕后的回调函数（如果没有动画，则直接回调）
      */
     onHided: Function;
-};
+}
 
-export type PanelShowOption = {
+export interface PanelShowOption {
     /**
      * 展示时传入的数据
      */
@@ -43,4 +43,4 @@ export type PanelShowOption = {
      * 展示动画完毕后回调的函数（如果没有动画，则直接回调）
      */
     onShowed: Function;
-};
+}
