@@ -12,28 +12,23 @@ GG 框架基于 TypeScript 语言，框架入口为 `gg`，只需要在编辑器
 
 现在，Go Game!
 
-## 一、项目规范
-
-- 采用[CocosCreator 官方推荐编码规范](http://docs.cocos.com/creator/manual/zh/scripting/reference/coding-standards.html?h=%E8%A7%84%E8%8C%83)
-- 项目采用 [TypeScript+EsLint](https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/README.md) 作为规范（TsLint 已经停止维护，TypeScript+Eslint 是未来）
-- 采用[VsCode 上的 Prettier 插件进行格式化控制](https://juejin.im/post/5a791d566fb9a0634853400e)
-    1. 项目采用了 VsCode 上的 **Prettier** 插件进行代码格式化控制
-    2. `.prettierrc` 文件为 Prettier 插件的配置文件，在 VsCode 运行时，会读取这个格式化控制配置文件
-    3. 更多关于 Prettier 插件的使用，可以查阅下面两篇文章：
-        - [VsCode + Prettier 使用教程](https://juejin.im/post/5a791d566fb9a0634853400e)
-        - [Prettier 配置文件说明](https://prettier.io/docs/en/configuration.html)
-
-## 二、项目开发环境配置
+## 一、项目开发环境配置
 
 1. 安装 [Cocos Creator 2.4.3](https://www.cocos.com/)
 2. 安装 [NodeJS](https://nodejs.org/en/)，安装成功后，安装依赖 npm 包
    ```
-   # 全局安装 ESLint 和 TypeScript
-   npm install -g eslint typescript
-   # 安装本项目的所有依赖（目前只有ESLint相关依赖，用于规范项目）
+   # 安装本项目的所有依赖（项目只依赖 TypeScript + ESLint 相关依赖，用于规范项目，提高代码质量）
    npm install
    ```     
-3. 推荐使用 VSCode + TypeScript
+3. 推荐使用 VSCode 作为代码编辑器
+4. 推荐安装 VSCode 插件 [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 、[Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+
+## 二、项目规范
+
+- 采用[CocosCreator 官方推荐编码规范](http://docs.cocos.com/creator/manual/zh/scripting/reference/coding-standards.html?h=%E8%A7%84%E8%8C%83)
+- 项目采用 [TypeScript+ESLint](https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/README.md) 作为规范（TSLint 已经停止维护，TypeScript+ESlint 是未来）
+  - [ESLint](https://eslint.org/docs/user-guide/configuring)
+  - [TypeScript+ESLint](https://github.com/typescript-eslint/typescript-eslint)
 
 ## 三、项目详细介绍
 
