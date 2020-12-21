@@ -96,7 +96,7 @@ export default class ToastPanelPrefab extends PanelComponent {
         });
     }
 
-    //////////////////////////////////////////////////////////////
+    // ////////////////////////////////////////////////////////////
     // 面板动画相关
 
     private _playPanelShowAnim(onAnimCompleted?: Function) {

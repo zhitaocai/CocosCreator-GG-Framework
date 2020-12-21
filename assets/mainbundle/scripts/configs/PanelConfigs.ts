@@ -16,24 +16,33 @@ enum PanelLayerEnum {
     PopLayer = 400,
 }
 
+interface PanelConfigProperty {
+    [
+        /**
+         * 参数名
+         */
+        key: string
+    ]: PanelConfig;
+}
+
 /**
  * 游戏面板配置
  */
-export const PanelConfigs = {
-    /////////////////////////////////////////////////////////
+export const PanelConfigs: PanelConfigProperty = {
+    // ///////////////////////////////////////////////////////
     // 普通页面层级
 
     /**
      * 游戏启动页面板
      */
-    bootPanel: <PanelConfig>{
+    bootPanel: {
         prefabPath: `${BundleConfigs.CommonBundle}/prefabs/boot/BootPanelPrefab`,
         layerZIndex: PanelLayerEnum.UILayer,
     },
     /**
      * 游戏主面板
      */
-    gamePanel: <PanelConfig>{
+    gamePanel: {
         prefabPath: `${BundleConfigs.GameBundle}/prefabs/game/GamePanelPrefab`,
         layerZIndex: PanelLayerEnum.UILayer,
     },
@@ -41,18 +50,18 @@ export const PanelConfigs = {
     /**
      * 游戏设置面板
      */
-    gameSettingPanel: <PanelConfig>{
+    gameSettingPanel: {
         prefabPath: `${BundleConfigs.GameBundle}/prefabs/gamesetting/GameSettingPanelPrefab`,
         layerZIndex: PanelLayerEnum.UILayer,
     },
 
-    /////////////////////////////////////////////////////////
+    // ///////////////////////////////////////////////////////
     // 弹窗层级
 
     /**
      * 通用加载页面
      */
-    loadingPanel: <PanelConfig>{
+    loadingPanel: {
         prefabPath: `${BundleConfigs.CommonBundle}/prefabs/popwindow/LoadingPanelPrefab`,
         layerZIndex: PanelLayerEnum.PopLayer,
     },
@@ -60,7 +69,7 @@ export const PanelConfigs = {
     /**
      * 通用Toast页面
      */
-    toastPanel: <PanelConfig>{
+    toastPanel: {
         prefabPath: `${BundleConfigs.CommonBundle}/prefabs/popwindow/ToastPanelPrefab`,
         layerZIndex: PanelLayerEnum.PopLayer,
     },

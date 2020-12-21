@@ -112,6 +112,8 @@ module.exports = {
          * 允许显式声明 number, string, boolean 的变量或参数值
          */
         "@typescript-eslint/no-inferrable-types": ["off"],
+        
+        "@typescript-eslint/consistent-type-assertions": ["off"],
     },
 
     // /**
