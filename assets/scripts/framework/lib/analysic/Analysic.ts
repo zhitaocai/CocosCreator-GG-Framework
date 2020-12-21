@@ -1,5 +1,5 @@
 import { gg } from "../../gg";
-import { AnalysicInterface as AnalysicInterface, EventParam } from "./AnalysicInterface";
+import { AnalysicInterface, EventParam } from "./AnalysicInterface";
 
 /**
  * 默认统计分析类

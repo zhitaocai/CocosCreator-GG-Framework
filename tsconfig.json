@@ -1,19 +1,27 @@
 {
-  "compilerOptions": {
-    "module": "commonjs",
-    "lib": [ "es2015", "es2017", "dom" ],
-    "target": "es5",
-    "experimentalDecorators": true,
-    "skipLibCheck": true,
-    "outDir": "temp/vscode-dist",
-    "forceConsistentCasingInFileNames": true
-  },
-  "exclude": [
-    "node_modules",
-    "library",
-    "local",
-    "temp",
-    "build",
-    "settings"
-  ]
+    "compilerOptions": {
+        "module": "commonjs",
+        "lib": ["es2015", "es2017", "dom"],
+        // 指定 ECMAScript 目标版本 "ES3"（默认）， "ES5"， "ES6" / "ES2015"， "ES2016"， "ES2017" 或 "ESNext"。
+        "target": "es5",
+        "experimentalDecorators": true,
+        "skipLibCheck": true,
+        "outDir": "temp/vscode-dist",
+
+        // 禁止对同一个文件的不一致的引用
+        "forceConsistentCasingInFileNames": true,
+
+        // 构建的目标代码删除所有注释，除了以 /!* 开头的版权信息
+        "removeComments": true,
+
+        // 可配合 gulp-typescript 生成相应的 .d.ts 文件
+        "declaration": true,
+
+        // 启用所有严格类型检查选项。启用 --strict 相当于启用 --noImplicitAny, --noImplicitThis, --alwaysStrict， --strictNullChecks, --strictFunctionTypes 和 --strictPropertyInitialization
+        // "strict": true,
+
+        // 报错时不生成输出文件
+        "noEmitOnError": true
+    },
+    "exclude": ["node_modules", "library", "local", "temp", "build", "settings"]
 }

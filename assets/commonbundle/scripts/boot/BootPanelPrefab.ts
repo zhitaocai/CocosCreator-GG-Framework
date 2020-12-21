@@ -1,8 +1,6 @@
 import GameSettingModule from "../../../gamebundle/scripts/gamesetting/GameSettingModule";
-import { BundleConfigs } from "../../../mainbundle/scripts/configs/BundleConfigs";
 import { PanelConfigs } from "../../../mainbundle/scripts/configs/PanelConfigs";
 import { gg } from "../../../scripts/framework/gg";
-import AssetLoader from "../../../scripts/framework/lib/asset/AssetLoader";
 import { PanelComponent, PanelHideOption, PanelShowOption } from "../../../scripts/framework/lib/router/PanelComponent";
 
 const { ccclass, property } = cc._decorator;
@@ -37,10 +35,6 @@ export default class BootPanelPrefab extends PanelComponent {
     }
 
     private async _initGame() {
-        // 加载 Bundle
-        this._onLoadProgressChanged(0, "加载游戏设置...");
-        await AssetLoader.loadBundle(BundleConfigs.GameBundle);
-
         // 初始化游戏设置
         this._onLoadProgressChanged(0.1, "加载游戏设置...");
         GameSettingModule.initSettingConfig();

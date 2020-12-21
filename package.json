@@ -1,25 +1,36 @@
 {
-  "name": "cocoscreator-gg-framework",
-  "version": "1.0.0",
-  "description": "[![](https://img.shields.io/badge/Release-0.0.0-orange.svg)](CHANGELOG.md) [![](https://img.shields.io/badge/Support-web-green.svg)]() [![](https://img.shields.io/badge/Support-minigame-green.svg)]() [![](https://img.shields.io/badge/Support-Android-green.svg)]() [![](https://img.shields.io/badge/Support-iOS-green.svg)]()",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "caizhitao",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zhitaocai/CocosCreator-GG-Framework.git"
-  },
-  "keywords": [
-    "cocos",
-    "creator",
-    "gg",
-    "framework"
-  ],
-  "bugs": {
-    "url": "https://github.com/zhitaocai/CocosCreator-GG-Framework/issues"
-  },
-  "homepage": "https://github.com/zhitaocai/CocosCreator-GG-Framework#readme"
+    "name": "cocoscreator-gg-framework",
+    "version": "1.0.0",
+    "description": "Cocos Creator Go Game Framework",
+    "main": "",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "lint": "eslint assets --ext .js,.ts"
+    },
+    "author": "caizhitao",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/zhitaocai/CocosCreator-GG-Framework.git"
+    },
+    "keywords": [
+        "cocos",
+        "creator",
+        "gg",
+        "framework"
+    ],
+    "bugs": {
+        "url": "https://github.com/zhitaocai/CocosCreator-GG-Framework/issues"
+    },
+    "homepage": "https://github.com/zhitaocai/CocosCreator-GG-Framework#readme",
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.10.0",
+        "@typescript-eslint/parser": "^4.10.0",
+        "eslint": "^7.16.0",
+        "eslint-config-alloy": "^3.8.2",
+        "eslint-config-prettier": "^7.1.0",
+        "prettier": "^2.2.1",
+        "typescript": "^4.1.3"
+    },
+    "dependencies": {}
 }

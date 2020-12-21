@@ -133,7 +133,7 @@ export default class EventManager implements EventManagerInterface {
 /**
  * 缓存事件
  */
-type EventCache = {
+interface EventCache {
     /**
      * 回调函数执行者
      */
@@ -148,4 +148,4 @@ type EventCache = {
      * 是否只回调一次
      */
     once: boolean;
-};
+}

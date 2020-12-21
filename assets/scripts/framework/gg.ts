@@ -41,7 +41,7 @@ export interface FrameworkInterface {
 /**
  * GoGame 框架入口
  */
-export const gg = <FrameworkInterface>{
+export const gg: FrameworkInterface = {
     logger: ((): LoggerInterface => {
         return new CCLogger();
         // if (cc.sys.isNative) {
@@ -53,5 +53,5 @@ export const gg = <FrameworkInterface>{
     eventManager: new EventManager(),
     analysic: new Analysic(),
     storage: new LocalStorage(),
-    panelRouter: new PanelRouter(),
+    panelRouter: new PanelRouter()
 };
