@@ -18,7 +18,7 @@ GG 框架基于 TypeScript 语言，框架入口为 `gg`，只需要在编辑器
 2. 安装 [NodeJS](https://nodejs.org/en/)，安装成功后，安装依赖 npm 包
    ```
    # 安装本项目的所有依赖（项目只依赖 TypeScript + ESLint 相关依赖，用于规范项目，提高代码质量）
-   npm install
+   npm i --save-dev
    ```     
 3. 推荐使用 VSCode 作为代码编辑器
 4. 推荐安装 VSCode 插件 [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 、[Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) 安装完毕后。打开 VSCode `settings.json`，配置以下代码即可
