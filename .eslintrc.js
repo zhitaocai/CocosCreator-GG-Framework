@@ -74,6 +74,16 @@ module.exports = {
         "no-eq-null": "off",
 
         /**
+         * 控制极限环复杂度最大值为25（默认20），超过后警告(默认是报错)
+         */
+        complexity: [
+            "warn",
+            {
+                max: 25,
+            },
+        ],
+
+        /**
          * 函数最多参数数量为 3 个（默认值），超过之后警告
          */
         "max-params": ["warn"],
@@ -112,7 +122,7 @@ module.exports = {
          * 允许显式声明 number, string, boolean 的变量或参数值
          */
         "@typescript-eslint/no-inferrable-types": ["off"],
-        
+
         "@typescript-eslint/consistent-type-assertions": ["off"],
     },
 
