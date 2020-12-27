@@ -53,6 +53,11 @@ export default class GamePanelPrefab extends PanelComponent {
             panel: PanelConfigs.loadingPanel,
             data: <LoadingPanelShowArgs>{
                 playShowAnim: true,
+                onCancelLoadingBtnClick: () => {
+                    gg.panelRouter.hide({
+                        panel: PanelConfigs.loadingPanel,
+                    });
+                },
             },
             onShowed: () => {},
         });

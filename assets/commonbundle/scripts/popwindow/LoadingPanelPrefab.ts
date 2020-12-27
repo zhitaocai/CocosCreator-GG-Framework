@@ -7,6 +7,11 @@ export interface LoadingPanelShowArgs {
      * 展示时是否播放展示动画（不传则默认播放）
      */
     playShowAnim?: boolean;
+
+    /**
+     * 点击加载页面时回调
+     */
+    onCancelLoadingBtnClick?: Function;
 }
 
 /**
@@ -75,5 +80,9 @@ export default class LoadingPanel extends PanelComponent {
             .start();
         cc.Tween.stopAllByTarget(this.loadingSpriteNode);
         cc.tween<cc.Node>(this.loadingSpriteNode).to(0.24, { scale: 0, opacity: 0 }, { easing: "sineOut" }).start();
+    }
+
+    onCancelLoadingBtnClick() {
+        this._showArgs && this._showArgs.onCancelLoadingBtnClick && this._showArgs.onCancelLoadingBtnClick();
     }
 }
