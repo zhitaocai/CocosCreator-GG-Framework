@@ -22,8 +22,8 @@ export default class MainSceneCtrl extends cc.Component {
 
     async start() {
         // 加载 Bundle
-        await AssetLoader.loadBundle(BundleConfigs.CommonBundle)
         await AssetLoader.loadBundle(BundleConfigs.GameBundle);
+        await AssetLoader.loadBundle(BundleConfigs.CommonBundle)
 
         // 加载启动页
         await gg.panelRouter.loadAsync(PanelConfigs.bootPanel);
