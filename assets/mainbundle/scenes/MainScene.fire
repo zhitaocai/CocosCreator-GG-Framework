@@ -174,7 +174,7 @@
       "array": [
         0,
         0,
-        542.4236643413008,
+        521.347293078232,
         0,
         0,
         0,
@@ -296,31 +296,14 @@
     "_id": "691yXhycJBzotEO59+F1b0"
   },
   {
-    "__type__": "cc.Widget",
+    "__type__": "ef3af3lgNJGSbQdCsSRaHtS",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 5
     },
     "_enabled": true,
-    "alignMode": 1,
-    "_target": null,
-    "_alignFlags": 45,
-    "_left": 0,
-    "_right": 0,
-    "_top": 0,
-    "_bottom": 0,
-    "_verticalCenter": 0,
-    "_horizontalCenter": 0,
-    "_isAbsLeft": true,
-    "_isAbsRight": true,
-    "_isAbsTop": true,
-    "_isAbsBottom": true,
-    "_isAbsHorizontalCenter": true,
-    "_isAbsVerticalCenter": true,
-    "_originalWidth": 0,
-    "_originalHeight": 0,
-    "_id": "27/SDtSB5MCIvDA7xY56/b"
+    "_id": "895DvY/l1Ke5dj2L/BQcDx"
   },
   {
     "__type__": "cc.Canvas",
