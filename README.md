@@ -6,7 +6,7 @@
 
 Cocos Creator GG Framework 是一个让游戏快速搭建跑起来的框架，意为 Go Game! 
 
-// TODO：框架介绍贴图
+![](static/gg-preview.png)
 
 GG 框架使用 TypeScript 语言，基于 **单场景+多Prefab** 的结构。框架入口为 `gg`，只需要在编辑器中输入 `gg.` 即可通过 Visual Studio Code 编辑器的提示，了解框架所有API的用法及其含义，十分方便上手。
 
