@@ -1,5 +1,5 @@
 import { gg } from "../../gg";
-import { AnalysicInterface, EventParam } from "./AnalysicInterface";
+import { AnalysisInterface, EventParam } from "./AnalysisInterface";
 
 /**
  * 默认统计分析类
@@ -7,7 +7,7 @@ import { AnalysicInterface, EventParam } from "./AnalysicInterface";
  * @author caizhitao
  * @created 2020-11-26 22:25:55
  */
-export default class Analysic implements AnalysicInterface {
+export default class Analysis implements AnalysisInterface {
     report(eventName: string, eventParams?: EventParam): void {
         gg.logger.log("analysic", "report", eventName, eventParams);
         // gg.logger.log(">> 上报事件")

@@ -1,5 +1,5 @@
-import Analysic from "./lib/analysic/Analysic";
-import { AnalysicInterface } from "./lib/analysic/AnalysicInterface";
+import Analysis from "./lib/analysis/Analysis";
+import { AnalysisInterface } from "./lib/analysis/AnalysisInterface";
 import EventManager from "./lib/eventmanager/EventManager";
 import { EventManagerInterface } from "./lib/eventmanager/EventManagerInterface";
 import CCLogger from "./lib/logger/CCLogger";
@@ -25,7 +25,7 @@ export interface FrameworkInterface {
     /**
      * 事件统计上报接口
      */
-    analysic: AnalysicInterface;
+    analysis: AnalysisInterface;
 
     /**
      * 面板路由器接口
@@ -51,7 +51,7 @@ export const gg: FrameworkInterface = {
         // }
     })(),
     eventManager: new EventManager(),
-    analysic: new Analysic(),
+    analysis: new Analysis(),
     storage: new LocalStorage(),
     panelRouter: new PanelRouter()
 };

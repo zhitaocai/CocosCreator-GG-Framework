@@ -4,7 +4,7 @@
  * @author caizhitao
  * @created 2020-11-26 22:26:22
  */
-export interface AnalysicInterface {
+export interface AnalysisInterface {
     /**
      * 上报统计事件
      *
