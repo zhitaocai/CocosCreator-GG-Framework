@@ -54,6 +54,8 @@ export default class SafeAreaAdapterComponent extends cc.Component {
         }
     }
 
+    static safeAreaSimulatehandler: Function;
+
     private static _safeArea: SafeArea;
 
     static set safeArea(value: SafeArea) {
@@ -134,13 +136,14 @@ export default class SafeAreaAdapterComponent extends cc.Component {
             //     }
             // }
 
-            // 调试模式下模拟安全区域
-            // if (CC_DEBUG) {
-            //     safeAreaMarginTop = 200;
-            //     safeAreaMarginBottom = 50;
-            //     safeAreaMarginLeft = 0;
-            //     safeAreaMarginRight = 0;
-            // }
+            // 处理传入来的模拟安全区域
+            if (this.safeAreaSimulatehandler) {
+                let simulateData = this.safeAreaSimulatehandler();
+                safeAreaMarginTop = simulateData.safeAreaMarginTop;
+                safeAreaMarginBottom = simulateData.safeAreaMarginBottom;
+                safeAreaMarginLeft = simulateData.safeAreaMarginLeft;
+                safeAreaMarginRight = simulateData.safeAreaMarginRight;
+            }
 
             // 计算安全区域的宽高像素
             let safeAreaWidth = screenWidth - safeAreaMarginLeft - safeAreaMarginRight;
